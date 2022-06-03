@@ -1,0 +1,33 @@
+@import '../../style/variables.scss';
+
+.hamburger {
+    //position: absolute;
+    //left: 28px;
+    //top: 28px;
+    z-index: 100;
+
+    &__active {
+        span {
+            &:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                display: none;
+            }
+
+            &:nth-child(3) {
+                transform: translateY(-1px) rotate(-45deg);
+            }
+        }
+    }
+
+    span {
+        display: block;
+        margin: 6px 0;
+        background: $dark-green;
+        width: 33px;
+        height: 3px;
+        transition: 0.2s all;
+    }
+}

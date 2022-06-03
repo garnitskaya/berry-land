@@ -1,0 +1,74 @@
+@import '../../style/variables.scss';
+
+.header {
+    top: 0;
+    width: 100%;
+    position: sticky;
+    font-family: 'Nunito';
+    background-color: $green;
+    height: 115px;
+    color: white;
+    z-index: 100;
+
+    &__list {
+        padding: 55px 0 0 0;
+        max-height: 115px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 44px;
+        list-style-type: none;
+
+    }
+}
+
+@media (max-width:992px) {
+    .header {
+        &__list {
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .header {
+        height: 80px;
+
+        .container {
+            padding: 0;
+        }
+
+        &__list {
+            top: 0;
+            opacity: 0;
+            position: fixed;
+            padding: 104px 30px 32px;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0;
+            max-height: 0;
+            height: 0;
+            width: 100%;
+            align-items: center;
+            background-color: $green;
+            box-shadow: 0px 4px 20px rgba(184, 180, 176, 0.8);
+            border-radius: 0 0 24px 24px;
+            transition: .4s all;
+            overflow: hidden;
+            z-index: -1;
+
+            &__active {
+                max-height: 100%;
+                height: 445px;
+                opacity: 1;
+                z-index: 50;
+
+            }
+        }
+
+
+        &__list li:first-child {
+            order: 5;
+        }
+    }
+}

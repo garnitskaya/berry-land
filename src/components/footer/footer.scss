@@ -1,0 +1,60 @@
+@import '../../style/variables.scss';
+
+.footer {
+    font-family: 'Nunito';
+    padding: 74px 0 56px;
+    background: $green;
+
+    &__wrap {
+        display: flex;
+        justify-content: center;
+        gap: 135px;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    &__title {
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+    }
+
+    &__item {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+    }
+}
+
+@media (max-width:1200px) {
+    .footer {
+        &__wrap {
+            gap: 90px;
+        }
+    }
+}
+
+@media (max-width:992px) {
+    .footer {
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__wrap {
+            max-width: 80%;
+            gap: 50px 80px;
+            flex-wrap: wrap;
+        }
+
+        &__items {
+            flex: 0 1 186px;
+        }
+    }
+}

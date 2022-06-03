@@ -1,0 +1,39 @@
+@import '../../style/variables.scss';
+
+.header {
+    &__link {
+        &-cart {
+            margin-top: -10px;
+            position: relative;
+        }
+
+        &-quantity {
+            font-family: 'Montserrat';
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 27px;
+            letter-spacing: 0.02em;
+            color: $green;
+            position: absolute;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            top: -16px;
+            left: 20px;
+            background: $dark-green;
+            border-radius: 50%;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .header {
+        &__link {
+            &-cart {
+                margin-top: 20px;
+            }
+        }
+    }
+}

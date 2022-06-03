@@ -1,0 +1,41 @@
+.cards-page {
+    padding: 72px 0 90px;
+
+    &__wrap {
+        display: flex;
+        gap: 28px;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width:1600px) {
+    .cards-page {
+        &__wrap {
+            padding: 0 30px 0 0;
+        }
+    }
+}
+
+@media (max-width:1400px) {
+    .cards-page {
+        &__wrap {
+            padding: 0 20px 0 0;
+        }
+    }
+}
+
+@media (max-width:1200px) {
+    .cards-page {
+        &__wrap {
+            padding: 0;
+        }
+    }
+
+}
+
+@media (max-width:768px) {
+    .cards-page {
+        padding: 32px 0;
+    }
+
+}

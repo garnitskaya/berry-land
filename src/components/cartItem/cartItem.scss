@@ -1,0 +1,39 @@
+@import '../../style/variables.scss';
+
+.cart-item {
+    display: flex;
+    align-items: center;
+
+    &__trash {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    &__img {
+        margin-left: 16px;
+        width: 100px;
+        height: 70px;
+        object-fit: cover;
+        border: 1px solid $green;
+    }
+
+    &__title,
+    &__order {
+        margin-left: 16px;
+        font-family: 'Nunito';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+    }
+
+    &__order {
+        margin-top: 8px;
+        font-weight: 400;
+    }
+
+    &:not(:first-child) {
+        margin-top: 16px;
+    }
+}

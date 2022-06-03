@@ -1,0 +1,8 @@
+@import '../../style/variables.scss';
+
+.recipes-page {
+    text-align: center;
+    padding: 70px 0;
+    min-height: calc(100vh - 115px - 241px);
+    color: $dark-green;
+}

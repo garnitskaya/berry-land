@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Orelega+One:regular);
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import './variables';
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orelega One';
+    color: $white;
+    background: url('../resources/img/main_screen.png') 0 10px/100% auto no-repeat;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.container {
+    padding: 0 15px;
+    max-width: 1638px;
+    margin: 0 auto;
+}
+
+.title {
+    padding: 10px;
+    font-size: 27px;
+    font-weight: 400;
+    color: $red;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width:576px) {
+    body {
+        background: url('../resources/img/mob.png') 0 58px/ 100% auto no-repeat;
+    }
+}

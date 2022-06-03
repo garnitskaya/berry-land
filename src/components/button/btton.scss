@@ -1,0 +1,27 @@
+@import '../../style/variables.scss';
+
+.btn {
+    font-family: 'Nunito';
+    padding: 12px 8px;
+    min-width: 114px;
+    height: 49px;
+    color: white;
+    background: $dark-green;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+
+    &__green {
+        background: $green;
+    }
+
+    &__white {
+        color: $grey;
+        background: white;
+        border: 1px solid $grey;
+    }
+
+}

@@ -1,0 +1,115 @@
+@import '../../style/variables.scss';
+
+.card {
+    position: relative;
+    padding: 24px;
+    width: 296px;
+    height: 439px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 16px rgba(184, 180, 176, 0.5);
+    border-radius: 24px;
+    background: white;
+    overflow: hidden;
+
+    &__sale {
+        &::before {
+            content: '';
+            position: absolute;
+            border: 40px solid $green;
+            border-bottom: 40px solid transparent;
+            border-right: 40px solid transparent;
+            top: 0;
+            left: 0;
+        }
+
+        &::after {
+            content: 'Скидка!';
+            font-family: 'Nunito';
+            position: absolute;
+            top: 18px;
+            left: 0;
+            font-size: 15px;
+            line-height: 20px;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: $white;
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__title {
+        min-height: 84px;
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: $dark-green;
+        white-space: pre-wrap;
+    }
+
+    &__img {
+        width: 248px;
+        height: 171px;
+        object-fit: cover;
+    }
+
+    &__price {
+        font-family: 'Nunito';
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        align-items: center;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        color: #000000;
+
+        &-new {
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 30px;
+            color: $new-price;
+        }
+
+        &-old {
+            text-decoration: line-through;
+            text-decoration-color: $red;
+            text-decoration-thickness: 3px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .card {
+        padding: 16px;
+        width: 210px;
+        height: 432px;
+
+
+        &__title {
+            font-size: 20px;
+            line-height: 22px;
+        }
+
+        &__img {
+            width: 178px;
+            height: 104px;
+        }
+
+        &__price {
+            min-height: 54px;
+            flex-wrap: wrap;
+            gap: 0 14px;
+
+            &-new {
+                flex: 1 0 100%;
+                text-align: center;
+            }
+        }
+    }
+}

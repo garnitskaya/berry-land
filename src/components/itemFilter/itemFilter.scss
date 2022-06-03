@@ -1,0 +1,47 @@
+@import '../../style/variables.scss';
+
+.filter {
+    padding: 0 15px;
+    margin: 60px auto 0;
+    max-width: 360px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(244, 118, 118, 0.5);
+
+    &__btn {
+        position: relative;
+        font-family: 'Nunito';
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+        color: $dark-green;
+        cursor: pointer;
+        background-image: linear-gradient($red, $red);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 1px;
+        transition: background-size .3s;
+    }
+
+    &__btn:hover {
+        background-size: 100% 2px;
+    }
+
+    .active {
+        background-image: linear-gradient($red, $red);
+        background-size: 100% 1px;
+    }
+}
+
+@media (max-width:768px) {
+    .filter {
+        margin: 32px auto 0;
+        max-width: 388px;
+
+        &__btn {
+            font-size: 20px;
+            line-height: 27px;
+        }
+    }
+}

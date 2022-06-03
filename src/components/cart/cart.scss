@@ -1,0 +1,50 @@
+@import '../../style/variables.scss';
+
+.cart {
+    padding: 24px;
+    display: grid;
+    grid-template: auto auto auto /248px;
+    height: fit-content;
+    gap: 24px;
+    border: 2px solid $green;
+    border-radius: 24px;
+    color: $dark-green;
+    background: $white;
+
+    &__title {
+        font-weight: 400;
+        font-size: 26px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.02em;
+    }
+
+    &__line {
+        margin: 20px 0;
+    }
+
+    &__subtotal {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Nunito';
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 0.02em;
+    }
+
+    &__subtotal span:first-child {
+        font-weight: 700;
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width:992px) {
+    .cart {
+        display: none;
+    }
+}
