@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .header {
     &__link {
@@ -8,8 +8,8 @@
         }
 
         &-quantity {
-            font-family: 'Montserrat';
-            font-weight: 700;
+            font-family: nth($font-family, 3);
+            font-weight: nth($font-weight, 4);
             font-size: 22px;
             line-height: 27px;
             letter-spacing: 0.02em;
@@ -28,7 +28,7 @@
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .header {
         &__link {
             &-cart {

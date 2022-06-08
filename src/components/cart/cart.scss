@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .cart {
     padding: 24px;
@@ -12,7 +12,7 @@
     background: $white;
 
     &__title {
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
         font-size: 26px;
         line-height: 28px;
         text-align: center;
@@ -26,15 +26,15 @@
     &__subtotal {
         display: flex;
         justify-content: space-between;
-        font-family: 'Nunito';
-        font-weight: 400;
+        font-family: nth($font-family, 2);
+        font-weight: nth($font-weight, 1);
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.02em;
     }
 
     &__subtotal span:first-child {
-        font-weight: 700;
+        font-weight: nth($font-weight, 4);
     }
 
     &__btns {
@@ -43,7 +43,7 @@
     }
 }
 
-@media (max-width:992px) {
+@include tablet-portrait {
     .cart {
         display: none;
     }

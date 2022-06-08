@@ -1,3 +1,5 @@
+@import '../../style';
+
 .cart-blocks {
     margin-top: 25px;
     display: flex;
@@ -20,19 +22,19 @@
         min-width: 200px;
         display: flex;
         justify-content: space-between;
-        font-family: 'Nunito';
-        font-weight: 400;
+        font-family: nth($font-family, 2);
+        font-weight: nth($font-weight, 1);
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.02em;
     }
 
     &__subtotal span:first-child {
-        font-weight: 700;
+        font-weight: nth($font-weight, 4);
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .cart-blocks {
         margin-top: 25px;
         flex-direction: column;

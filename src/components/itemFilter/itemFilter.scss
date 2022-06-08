@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .filter {
     padding: 0 15px;
@@ -10,8 +10,8 @@
 
     &__btn {
         position: relative;
-        font-family: 'Nunito';
-        font-weight: 600;
+        font-family: nth($font-family, 2);
+        font-weight: nth($font-weight, 3);
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.02em;
@@ -34,7 +34,7 @@
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .filter {
         margin: 32px auto 0;
         max-width: 388px;

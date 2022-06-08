@@ -21,8 +21,8 @@
     &__title,
     &__order {
         margin-left: 16px;
-        font-family: 'Nunito';
-        font-weight: 700;
+        font-family: nth($font-family, 2);
+        font-weight: nth($font-weight, 4);
         font-size: 16px;
         line-height: 22px;
         letter-spacing: 0.02em;
@@ -30,7 +30,7 @@
 
     &__order {
         margin-top: 8px;
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
     }
 
     &:not(:first-child) {

@@ -1,0 +1,19 @@
+%extend-btn {
+    font-family: nth($font-family, 2);
+    padding: 12px 8px;
+    min-width: 114px;
+    height: 49px;
+    border-radius: 16px;
+    font-weight: nth($font-weight, 4);
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+}
+
+@mixin btn($color, $background, $border: false) {
+    @extend %extend-btn;
+    color: $color;
+    background: $background;
+    border: $border;
+}

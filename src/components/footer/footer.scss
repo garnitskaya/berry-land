@@ -1,7 +1,7 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .footer {
-    font-family: 'Nunito';
+    font-family: nth($font-family, 2);
     padding: 74px 0 56px;
     background: $green;
 
@@ -18,21 +18,21 @@
     }
 
     &__title {
-        font-weight: 800;
+        font-weight: nth($font-weight, 5);
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.02em;
     }
 
     &__item {
-        font-weight: 600;
+        font-weight: nth($font-weight, 3);
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.02em;
     }
 }
 
-@media (max-width:1200px) {
+@include laptop {
     .footer {
         &__wrap {
             gap: 90px;
@@ -40,7 +40,7 @@
     }
 }
 
-@media (max-width:992px) {
+@include tablet-portrait {
     .footer {
         .container {
             display: flex;

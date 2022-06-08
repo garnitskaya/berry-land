@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .order-block {
     display: flex;
@@ -16,10 +16,10 @@
 
     &__item,
     &__counter {
-        font-family: 'Nunito';
+        font-family: nth($font-family, 2);
         min-width: 13px;
         text-align: center;
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
         font-size: 18px;
         line-height: 25px;
         letter-spacing: 0.02em;
@@ -32,7 +32,7 @@
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .order-block {
         flex-direction: column;
         gap: 12px;

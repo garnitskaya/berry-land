@@ -20,7 +20,7 @@ const CardsList = () => {
     }
 
     if (error) {
-        return <h2 className='title'>{error}</h2>
+        return <h2 className='title__error'>{error}</h2>
     }
 
     const filteredItems = (items, filter) => {

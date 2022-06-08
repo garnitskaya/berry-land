@@ -1,13 +1,13 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .header {
     top: 0;
     width: 100%;
     position: sticky;
-    font-family: 'Nunito';
+    font-family: nth($font-family, 2);
     background-color: $green;
     height: 115px;
-    color: white;
+    color: $white;
     z-index: 100;
 
     &__list {
@@ -18,11 +18,10 @@
         justify-content: center;
         gap: 44px;
         list-style-type: none;
-
     }
 }
 
-@media (max-width:992px) {
+@include tablet-portrait {
     .header {
         &__list {
             gap: 20px;
@@ -30,7 +29,7 @@
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .header {
         height: 80px;
 
@@ -62,10 +61,8 @@
                 height: 445px;
                 opacity: 1;
                 z-index: 50;
-
             }
         }
-
 
         &__list li:first-child {
             order: 5;

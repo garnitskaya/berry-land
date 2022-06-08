@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: nth($font-family, 1);
+    background: map-get($bg, "main");
+    color: $white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.container {
+    max-width: 1638px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.title__error {
+    padding: 10px;
+    font-size: 27px;
+    font-weight: nth($font-weight, 1);
+    color: $red;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+@include mobil {
+    body {
+        background: map-get($bg, "mobile");
+    }
+}

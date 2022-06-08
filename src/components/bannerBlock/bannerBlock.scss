@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .banner-block {
     padding-top: 300px;
@@ -7,7 +7,7 @@
     &__title {
         font-size: 69px;
         line-height: 75px;
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
         color: $green;
         letter-spacing: 0.02em;
     }
@@ -22,7 +22,7 @@
 
     &__descr {
         margin-top: 26px;
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
         font-size: 48px;
         line-height: 52px;
         color: $dark-green;
@@ -30,7 +30,7 @@
     }
 }
 
-@media (max-width:992px) {
+@include tablet-portrait {
     .banner-block {
         padding-top: 25%;
 
@@ -51,7 +51,7 @@
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .banner-block {
         &__title {
             font-size: 49px;
@@ -66,7 +66,7 @@
     }
 }
 
-@media (max-width:576px) {
+@include mobil {
     .banner-block {
         padding-top: 45%;
 

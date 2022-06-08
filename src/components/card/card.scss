@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../style';
 
 .card {
     position: relative;
@@ -11,7 +11,7 @@
     align-items: center;
     box-shadow: 0px 0px 16px rgba(184, 180, 176, 0.5);
     border-radius: 24px;
-    background: white;
+    background: $white;
     overflow: hidden;
 
     &__sale {
@@ -27,7 +27,7 @@
 
         &::after {
             content: 'Скидка!';
-            font-family: 'Nunito';
+            font-family: nth($font-family, 2);
             position: absolute;
             top: 18px;
             left: 0;
@@ -43,7 +43,7 @@
     &__title {
         min-height: 84px;
         font-size: 26px;
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
         line-height: 28px;
         letter-spacing: 0.02em;
         text-align: center;
@@ -58,19 +58,19 @@
     }
 
     &__price {
-        font-family: 'Nunito';
+        font-family: nth($font-family, 2);
         width: 100%;
         display: flex;
         justify-content: center;
         gap: 14px;
         align-items: center;
-        font-weight: 400;
+        font-weight: nth($font-weight, 1);
         font-size: 18px;
         line-height: 25px;
         color: #000000;
 
         &-new {
-            font-weight: 700;
+            font-weight: nth($font-weight, 4);
             font-size: 22px;
             line-height: 30px;
             color: $new-price;
@@ -84,7 +84,7 @@
     }
 }
 
-@media (max-width:768px) {
+@include tablet {
     .card {
         padding: 16px;
         width: 210px;
