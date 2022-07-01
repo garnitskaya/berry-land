@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addDataForCart, dec, inc } from './../../redux/reducer';
+import { addDataForCart, dec, inc } from '../../store/mainSlice';
 import Button from '../button/Button';
 import './orderBlock.scss';
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { setMaxWidth } from '../../redux/reducer';
+import { setMaxWidth } from '../../store/mainSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import HeaderLink from '../headerLink/HeaderLink';
 import Hamburger from '../hamburger/Hamburger';

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from './../button/Button';
 import CartItem from './../cartItem/CartItem';
-import { addItemsInCart } from '../../redux/reducer';
+import { addItemsInCart } from '../../store/mainSlice';
 import { itemsCart, renderItem, calcTotalPrice } from '../../utils/';
 import './cart.scss';
 

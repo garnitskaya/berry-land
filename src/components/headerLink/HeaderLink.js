@@ -1,7 +1,7 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
-import { setClosingMenu } from './../../redux/reducer';
+import { setClosingMenu } from '../../store/mainSlice';
 import './headerLink.scss';
 
 const HeaderLink = ({ path, label, img, src, alt }) => {

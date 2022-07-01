@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { filtersChanged } from '../../redux/reducer';
+import { filtersChanged } from '../../store/mainSlice';
 import './itemFilter.scss';
 
 const ItemFilter = () => {

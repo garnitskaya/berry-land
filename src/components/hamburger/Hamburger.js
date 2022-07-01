@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setOpeningMenu } from './../../redux/reducer';
+import { setOpeningMenu } from '../../store/mainSlice';
 import './hamburger.scss';
 
 const Hamburger = () => {

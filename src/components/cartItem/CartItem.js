@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteItemInCart } from './../../redux/reducer';
+import { deleteItemInCart } from '../../store/mainSlice';
 import './cartItem.scss';
 
 const CartItem = ({ id, name, quantity, price, newPrice, img, imgBlock }) => {

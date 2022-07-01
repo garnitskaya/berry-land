@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDate } from '../../redux/reducer';
+import { fetchDate } from './../../store/mainSlice';
 import Card from './../../components/card/Card';
 import Spinner from './../spinner/Spinner';
 import data from '../../card.json';
