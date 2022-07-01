@@ -1,3 +1,5 @@
+import { createSlice } from '@reduxjs/toolkit'
+
 const initialState = {
     cards: [],
     loading: false,
@@ -6,106 +8,84 @@ const initialState = {
     itemsInCart: JSON.parse(localStorage.getItem('cards')) || [],
     activeFilter: 'all',
     filteredItems: [],
-    maxWidth: 0,
+    maxWidth: 1200,
     openMenu: false
 }
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'FETCH_DATA':
-            return {
-                ...state,
-                loading: true,
-            }
-        case 'FETCH_DATA_SUCCESS':
-            return {
-                ...state,
-                loading: false,
-                activeFilter: 'all',
-                cards: action.payload,
-                filteredItems: action.payload,
-            }
-        case 'FETCH_DATA_ERROR':
-            return {
-                ...state,
-                error: action.payload,
-                loading: false
-            }
-        case 'INC':
-            return {
-                ...state,
-                cards: state.cards.map(card =>
-                    card.id === action.payload ? { ...card, quantity: card.quantity + 1 } : card)
-            }
-        case 'DEC':
-            return {
-                ...state,
-                cards: state.cards.map(card =>
-                    card.id === action.payload ? { ...card, quantity: card.quantity - 1 } : card)
-            }
-        case 'ADD_DATA_FOR_CART':
-            return {
-                ...state,
-                dataForCart: [...state.dataForCart, { id: action.id, quantity: action.quantity }],
-            }
-        case 'ADD_ITEMS_IN_CART':
-            return {
-                ...state,
-                itemsInCart: action.payload,
-            }
-        case 'DELETE_ITEM_IN_CART':
-            return {
-                ...state,
-                dataForCart: state.dataForCart.filter(item => item.id !== action.payload),
-                itemsInCart: state.itemsInCart.filter(item => item.id !== action.payload)
-            }
-        case 'ACTIVE_FILTER_CHANGED':
-            return {
-                ...state,
-                activeFilter: action.payload,
-                filteredItems: action.payload === 'all' ?
-                    state.cards :
-                    state.cards.filter(item => item.group === action.payload),
-            }
-        case 'SET_MAX_WIDTH':
-            return {
-                ...state,
-                maxWidth: action.payload
-            }
-        case 'SET_OPENING_MENU':
-            return {
-                ...state,
-                openMenu: !state.openMenu
-            }
-        case 'SET_CLOSING_MENU':
-            return {
-                ...state,
-                openMenu: action.payload
-            }
-        default:
-            return state;
-    }
-}
-export default reducer;
-
-
-export const inc = (id) => ({ type: 'INC', payload: id });
-export const dec = (id) => ({ type: 'DEC', payload: id });
-export const addDataForCart = (id, quantity) => ({ type: 'ADD_DATA_FOR_CART', id, quantity });
-export const addItemsInCart = (cards) => ({ type: 'ADD_ITEMS_IN_CART', payload: cards });
-export const deleteItemInCart = (id) => ({ type: 'DELETE_ITEM_IN_CART', payload: id });
-export const filtersChanged = (filter) => ({ type: 'ACTIVE_FILTER_CHANGED', payload: filter });
-export const setMaxWidth = (max) => ({ type: 'SET_MAX_WIDTH', payload: max });
-export const setOpeningMenu = () => ({ type: 'SET_OPENING_MENU' });
-export const setClosingMenu = () => ({ type: 'SET_CLOSING_MENU', payload: false });
-
 export const fetchDate = (data) => async dispatch => {
     try {
-        dispatch({ type: 'FETCH_DATA' });
+        dispatch(dataFetching());
         setTimeout(() => {
-            dispatch({ type: 'FETCH_DATA_SUCCESS', payload: data });
+            dispatch(dataFetched(data));
         }, 500);
     } catch (error) {
-        dispatch({ type: 'FETCH_DATA_ERROR', payload: "Ошибка, что то пошло не так..." });
+        dispatch(dataFetchingError("Ошибка, что то пошло не так..."));
     }
 }
+
+
+export const mainSlice = createSlice({
+    name: 'main',
+    initialState,
+    reducers: {
+        dataFetching: (state) => {
+            state.loading = true;
+        },
+        dataFetched: (state, action) => {
+            state.loading = false;
+            state.activeFilter = 'all';
+            state.cards = action.payload;
+            state.filteredItems = action.payload;
+        },
+        dataFetchingError: (state, action) => {
+            state.error = action.payload;
+            state.loading = false;
+        },
+        inc: (state, action) => {
+            state.cards = state.cards.map(card => card.id === action.payload ? { ...card, quantity: card.quantity + 1 } : card);
+        },
+        dec: (state, action) => {
+            state.cards = state.cards.map(card => card.id === action.payload ? { ...card, quantity: card.quantity - 1 } : card);
+        },
+        addDataForCart: (state, action) => {
+            state.dataForCart.push(action.payload);
+        },
+        addItemsInCart: (state, action) => {
+            state.itemsInCart = action.payload;
+        },
+        deleteItemInCart: (state, action) => {
+            state.dataForCart = state.dataForCart.filter(item => item.id !== action.payload);
+            state.itemsInCart = state.itemsInCart.filter(item => item.id !== action.payload)
+        },
+        filtersChanged: (state, action) => {
+            state.activeFilter = action.payload;
+            state.filteredItems = action.payload === 'all' ?
+                state.cards :
+                state.cards.filter(item => item.group === action.payload);
+        },
+        setMaxWidth: (state, action) => {
+            state.maxWidth = action.payload
+        },
+        setOpeningMenu: (state) => {
+            state.openMenu = !state.openMenu;
+        },
+        setClosingMenu: (state) => {
+            state.openMenu = false;
+        }
+    }
+})
+
+export const {
+    dataFetching,
+    dataFetched,
+    dataFetchingError,
+    inc, dec,
+    addDataForCart,
+    addItemsInCart,
+    deleteItemInCart,
+    filtersChanged,
+    setMaxWidth,
+    setOpeningMenu,
+    setClosingMenu } = mainSlice.actions;
+
+export default mainSlice.reducer

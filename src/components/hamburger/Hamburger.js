@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setOpeningMenu } from './../../redux/reducer/index';
+import { setOpeningMenu } from './../../redux/reducer';
 import './hamburger.scss';
 
 const Hamburger = () => {
-    const { openMenu } = useSelector(state => state);
+    const { openMenu } = useSelector(state => state.mainSlice);
     const dispatch = useDispatch();
 
     const onOpenMenu = () => {

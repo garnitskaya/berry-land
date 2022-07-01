@@ -5,7 +5,7 @@ import { renderItem, calcTotalPrice } from '../../utils/';
 import './cartBlocks.scss';
 
 const CartBlocks = () => {
-    const { itemsInCart } = useSelector(state => state);
+    const { itemsInCart } = useSelector(state => state.mainSlice);
     let element;
 
     if (itemsInCart.length === 0) {

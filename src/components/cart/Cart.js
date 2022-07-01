@@ -8,7 +8,7 @@ import { itemsCart, renderItem, calcTotalPrice } from '../../utils/';
 import './cart.scss';
 
 const Cart = () => {
-    const { cards, dataForCart, itemsInCart, maxWidth } = useSelector(state => state);
+    const { cards, dataForCart, itemsInCart, maxWidth } = useSelector(state => state.mainSlice);
     const dispatch = useDispatch();
     let element;
 

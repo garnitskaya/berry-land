@@ -4,7 +4,7 @@ import shoppingCart from '../../resources/icons/ShoppingCart.svg';
 import './headerLinkCart.scss';
 
 const HeaderLinkCart = () => {
-    const { itemsInCart } = useSelector(state => state);
+    const { itemsInCart } = useSelector(state => state.mainSlice);
     return (
         <div className='header__link-cart'>
             <img src={shoppingCart} alt='cart' />

@@ -9,7 +9,7 @@ import flag from '../../resources/icons/israel-flag-icon.png';
 import './header.scss';
 
 const Header = () => {
-    const { openMenu, maxWidth } = useSelector(state => state);
+    const { openMenu, maxWidth } = useSelector(state => state.mainSlice);
     const dispatch = useDispatch();
     const ref = useRef();
 

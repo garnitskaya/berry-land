@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import './cardsList.scss';
 
 const CardsList = () => {
-    const { cards, loading, error, activeFilter } = useSelector(state => state);
+    const { cards, loading, error, activeFilter } = useSelector(state => state.mainSlice);
     const dispatch = useDispatch();
 
     useEffect(() => {

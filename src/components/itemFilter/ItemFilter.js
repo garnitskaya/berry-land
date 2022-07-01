@@ -3,7 +3,7 @@ import { filtersChanged } from '../../redux/reducer';
 import './itemFilter.scss';
 
 const ItemFilter = () => {
-    const { activeFilter } = useSelector(state => state);
+    const { activeFilter } = useSelector(state => state.mainSlice);
     const dispatch = useDispatch();
 
     const btns = [
@@ -31,7 +31,9 @@ const ItemFilter = () => {
 
     return (
         <div className='filter'>
-            {items}
+            <div className='filter__wrap'>
+                {items}
+            </div>
         </div>
     );
 };

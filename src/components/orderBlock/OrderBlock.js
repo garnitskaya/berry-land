@@ -18,7 +18,7 @@ const OrderBlock = ({ id, quantity }) => {
 
     const onAddItems = () => {
         if (quantity > 0) {
-            dispatch(addDataForCart(id, quantity));
+            dispatch(addDataForCart({ id, quantity }));
         }
     };
 
