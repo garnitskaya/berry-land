@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from './../header/Header';
-import CardsPage from './../../pages/cardsPage/CardsPage';
-import CartPage from './../../pages/cartPage/CartPage';
-import DeliveryPage from './../../pages/deliveryPage/DeliveryPage';
-import PaymentPage from './../../pages/paymentPage/PaymentPage';
-import RecipesPage from './../../pages/recipesPage/RecipesPage';
-import Footer from './../footer/Footer';
+import Header from '../header/Header';
+import CardsPage from '../../pages/cardsPage/CardsPage';
+import CartPage from '../../pages/cartPage/CartPage';
+import DeliveryPage from '../../pages/deliveryPage/DeliveryPage';
+import PaymentPage from '../../pages/paymentPage/PaymentPage';
+import RecipesPage from '../../pages/recipesPage/RecipesPage';
+import Footer from '../footer/Footer';
 
-function App() {
+const App:React.FC=()=> {
     return (
         <BrowserRouter >
             <Header />

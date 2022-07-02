@@ -1,11 +1,12 @@
-import { useSelector } from 'react-redux';
-import Button from './../../components/button/Button';
-import CartItem from './../../components/cartItem/CartItem';
-import { renderItem, calcTotalPrice } from '../../utils/';
+import { useAppSelector } from '../../hooks/useTypedSelector';
+import Button from '../button/Button';
+import CartItem from '../cartItem/CartItem';
+import { renderItem, calcTotalPrice } from '../../utils';
+
 import './cartBlocks.scss';
 
-const CartBlocks = () => {
-    const { itemsInCart } = useSelector(state => state.mainSlice);
+const CartBlocks:React.FC = () => {
+    const { itemsInCart } = useAppSelector(state => state.mainSlice);
     let element;
 
     if (itemsInCart.length === 0) {

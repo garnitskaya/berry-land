@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import { setOpeningMenu } from '../../store/mainSlice';
 import './hamburger.scss';
 
-const Hamburger = () => {
-    const { openMenu } = useSelector(state => state.mainSlice);
-    const dispatch = useDispatch();
+const Hamburger:React.FC = () => {
+    const { openMenu } = useAppSelector(state => state.mainSlice);
+    const dispatch = useAppDispatch();
 
-    const onOpenMenu = () => {
-        dispatch(setOpeningMenu())
+    const onOpenMenu = ():void => {
+        dispatch(setOpeningMenu());
     }
 
     return (

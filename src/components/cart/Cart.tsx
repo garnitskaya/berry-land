@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import { Link } from 'react-router-dom';
-import Button from './../button/Button';
-import CartItem from './../cartItem/CartItem';
+import Button from '../button/Button';
+import CartItem from '../cartItem/CartItem';
 import { addItemsInCart } from '../../store/mainSlice';
-import { itemsCart, renderItem, calcTotalPrice } from '../../utils/';
+import { itemsCart, renderItem, calcTotalPrice } from '../../utils';
+
 import './cart.scss';
 
 const Cart = () => {
-    const { cards, dataForCart, itemsInCart, maxWidth } = useSelector(state => state.mainSlice);
-    const dispatch = useDispatch();
+    const { cards, dataForCart, itemsInCart, maxWidth } = useAppSelector(state => state.mainSlice);
+    const dispatch =useAppDispatch();
     let element;
 
     useEffect(() => {

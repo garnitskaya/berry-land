@@ -22,8 +22,8 @@ const Footer = () => {
                     </div>
                     <div className='footer__items'>
                         <div className='footer__title'>ЧАСЫ РАБОТЫ</div>
-                        <div className='footer__item' href="#">вс – чт 10:00  – 18:00</div>
-                        <div className='footer__item' href="#">пт 10:00  – 13:00</div>
+                        <div className='footer__item'>вс – чт 10:00  – 18:00</div>
+                        <div className='footer__item'>пт 10:00  – 13:00</div>
                     </div>
                 </div>
             </div>

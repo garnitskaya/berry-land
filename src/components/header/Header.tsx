@@ -1,19 +1,21 @@
 import { useEffect, useRef } from 'react';
 import { setMaxWidth } from '../../store/mainSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import HeaderLink from '../headerLink/HeaderLink';
 import Hamburger from '../hamburger/Hamburger';
-import HeaderLinkCart from './../headerLinkCart/HeaderLinkCart';
+import HeaderLinkCart from '../headerLinkCart/HeaderLinkCart';
 import logo from '../../resources/icons/logo-icon.png';
 import flag from '../../resources/icons/israel-flag-icon.png';
+import { IHeaderLink } from '../../types';
+
 import './header.scss';
 
-const Header = () => {
-    const { openMenu, maxWidth } = useSelector(state => state.mainSlice);
-    const dispatch = useDispatch();
-    const ref = useRef();
+const Header:React.FC = () => {
+    const { openMenu, maxWidth } = useAppSelector(state => state.mainSlice);
+    const dispatch = useAppDispatch();
+    const ref = useRef<HTMLDivElement>(null!);
 
-    const resizeHandler = () => {
+    const resizeHandler = ():void => {
         const { clientWidth } = ref.current || {};
         dispatch(setMaxWidth(clientWidth));
     };
@@ -26,13 +28,13 @@ const Header = () => {
         };
     }, []);
 
-    const link = [
+    const link:IHeaderLink[] = [
         { path: './', label: 'Иврит', img: true, src: `${flag}`, alt: 'flag', visible: true },
-        { path: './all', label: 'Все продукты', visible: true },
-        { path: './recipes', label: 'Рецепты', visible: true },
+        { path: './all', label: 'Все продукты',alt:'', visible: true },
+        { path: './recipes', label: 'Рецепты',alt:'',  visible: true },
         { path: './all', label: '', img: true, src: `${logo}`, alt: 'logo', visible: false },
-        { path: './delivery', label: 'Доставка', visible: true },
-        { path: './payment', label: 'Оплата', visible: true },
+        { path: './delivery', label: 'Доставка',alt:'', visible: true },
+        { path: './payment', label: 'Оплата', alt:'', visible: true },
         { path: './cart', label: maxWidth > 992 ? 'Корзина' : <HeaderLinkCart />, alt: 'cart-link', visible: false },
     ];
 

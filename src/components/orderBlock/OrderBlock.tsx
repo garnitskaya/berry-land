@@ -1,22 +1,24 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hooks/useTypedSelector';
 import { addDataForCart, dec, inc } from '../../store/mainSlice';
+import { IDataForCart } from '../../types';
 import Button from '../button/Button';
+
 import './orderBlock.scss';
 
-const OrderBlock = ({ id, quantity }) => {
-    const dispatch = useDispatch();
+const OrderBlock:React.FC<IDataForCart> = ({ id, quantity }) => {
+    const dispatch = useAppDispatch();
 
-    const decItem = () => {
+    const decItem = ():void => {
         if (quantity > 0) {
             dispatch(dec(id));
         }
     };
 
-    const incItem = () => {
+    const incItem = ():void => {
         dispatch(inc(id));
     };
 
-    const onAddItems = () => {
+    const onAddItems = ():void => {
         if (quantity > 0) {
             dispatch(addDataForCart({ id, quantity }));
         }

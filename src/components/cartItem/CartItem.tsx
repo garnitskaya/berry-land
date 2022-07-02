@@ -1,11 +1,13 @@
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hooks/useTypedSelector';
 import { deleteItemInCart } from '../../store/mainSlice';
+import {  ICartItem } from '../../types';
+
 import './cartItem.scss';
 
-const CartItem = ({ id, name, quantity, price, newPrice, img, imgBlock }) => {
-    const dispatch = useDispatch();
+const CartItem:React.FC<ICartItem> = ({ id, name, quantity, price, newPrice, img, imgBlock }) => {
+    const dispatch = useAppDispatch();
 
-    const deleteItem = () => {
+    const deleteItem = ():void => {
         dispatch(deleteItemInCart(id));
     }
 

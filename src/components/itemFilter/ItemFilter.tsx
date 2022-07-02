@@ -1,18 +1,25 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import { filtersChanged } from '../../store/mainSlice';
 import './itemFilter.scss';
 
-const ItemFilter = () => {
-    const { activeFilter } = useSelector(state => state.mainSlice);
-    const dispatch = useDispatch();
+interface IBtns{
+    value: string;
+    label: string 
+}
 
-    const btns = [
+type OnFiltersChangedType = (value: string) => void;
+
+const ItemFilter:React.FC = () => {
+    const { activeFilter } = useAppSelector(state => state.mainSlice);
+    const dispatch = useAppDispatch();
+
+    const btns:IBtns[] = [
         { value: 'all', label: 'Все продукты' },
         { value: 'berries', label: 'Ягоды' },
         { value: 'superfood', label: 'Суперфуд' },
     ]
 
-    const onFiltersChanged = (value) => {
+    const onFiltersChanged:OnFiltersChangedType = (value) => {
         dispatch(filtersChanged(value));
     }
 

@@ -1,5 +1,5 @@
 import Cart from './../../components/cart/Cart';
-import CardsList from '../../components/cardsList/CardsList';
+import CardsList from './../../components/cardsList/CardsList';
 import BannerBlock from '../../components/bannerBlock/BannerBlock';
 import ItemFilter from '../../components/itemFilter/ItemFilter';
 import './cardsPage.scss';

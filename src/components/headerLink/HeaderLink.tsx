@@ -1,11 +1,13 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../hooks/useTypedSelector';
 import { setClosingMenu } from '../../store/mainSlice';
+import { IHeaderLink } from '../../types';
+
 import './headerLink.scss';
 
-const HeaderLink = ({ path, label, img, src, alt }) => {
-    const dispatch = useDispatch();
+const HeaderLink:React.FC<IHeaderLink> = ({ path, label, img, src, alt }) => {
+    const dispatch = useAppDispatch();
     let resolved = useResolvedPath(path);
     let match = useMatch({ path: resolved.pathname, end: true });
 
@@ -20,7 +22,7 @@ const HeaderLink = ({ path, label, img, src, alt }) => {
     });
 
     return (
-        <li onClick={closeMenu} key={label}>
+        <li onClick={closeMenu} key={path}>
             <Link to={path} className={linkClass}>
                 {label}
                 {img ? <img className={`header__link-${alt}`} src={src} alt={alt} /> : null}
