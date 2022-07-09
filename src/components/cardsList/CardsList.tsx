@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
+import { nanoid } from '@reduxjs/toolkit';
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import { fetchDate } from '../../store/mainSlice';
 import { ICard } from '../../types';
 import Card from '../card/Card';
 import Spinner from '../spinner/Spinner';
-import data from '../../card.json';
-import { v4 as uuidv4 } from 'uuid';
 
 import './cardsList.scss';
 
@@ -17,16 +16,8 @@ const CardsList: React.FC = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchDate(data.cards));
+        dispatch(fetchDate());
     }, []);
-
-    if (loading) {
-        return <Spinner />
-    }
-
-    if (error) {
-        return <h2 className='title__error'>{error}</h2>
-    }
 
     const filteredItems: FilteredItemsType = (items, filter) => {
         if (filter === 'all') {
@@ -37,15 +28,19 @@ const CardsList: React.FC = () => {
     }
 
     const renderItem: RenderItemType = (arr) => {
-        return arr.map(item => <Card key={uuidv4()} {...item} />)
+        return arr && arr.map(item => <Card key={nanoid()} {...item} />)
     };
 
     const element = renderItem(filteredItems(cards, activeFilter));
 
     return (
-        <div className='cards-list'>
-            {element}
-        </div>
+        <>
+            {loading && <Spinner />}
+            {error && <h2 className='title__error'>{error}</h2>}
+            <div className='cards-list'>
+                {element}
+            </div>
+        </>
     );
 };
 

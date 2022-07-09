@@ -6,9 +6,9 @@ interface ItemObjType {
     [key: string]: number;
 }
 
-export const itemsCart:ItemsCartType= (cards, dataForCart) => {
-    const itemObj:ItemObjType = {};
-    
+export const itemsCart: ItemsCartType = (cards, dataForCart) => {
+    const itemObj: ItemObjType = {};
+
     for (let i = 0; i < dataForCart.length; ++i) {
         let key = dataForCart[i].id
         let value = +dataForCart[i].quantity

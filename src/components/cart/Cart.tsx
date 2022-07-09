@@ -5,6 +5,7 @@ import Button from '../button/Button';
 import CartItem from '../cartItem/CartItem';
 import { addItemsInCart } from '../../store/mainSlice';
 import { itemsCart, renderItem, calcTotalPrice } from '../../utils';
+import { ICard } from '../../types';
 
 import './cart.scss';
 
@@ -14,7 +15,7 @@ const Cart = () => {
     let element;
 
     useEffect(() => {
-        const itemsInCart = itemsCart(cards, dataForCart);
+        const itemsInCart :ICard[]= itemsCart(cards, dataForCart);
         dispatch(addItemsInCart(itemsInCart));
     }, [dataForCart, cards])
 
