@@ -6,7 +6,7 @@ import { IHeaderLink } from '../../types';
 
 import './headerLink.scss';
 
-const HeaderLink:React.FC<IHeaderLink> = ({ path, label, img, src, alt }) => {
+const HeaderLink: React.FC<IHeaderLink> = ({ path, label, img, src, alt }) => {
     const dispatch = useAppDispatch();
     let resolved = useResolvedPath(path);
     let match = useMatch({ path: resolved.pathname, end: true });
@@ -22,7 +22,7 @@ const HeaderLink:React.FC<IHeaderLink> = ({ path, label, img, src, alt }) => {
     });
 
     return (
-        <li onClick={closeMenu} key={path}>
+        <li onClick={closeMenu}>
             <Link to={path} className={linkClass}>
                 {label}
                 {img ? <img className={`header__link-${alt}`} src={src} alt={alt} /> : null}

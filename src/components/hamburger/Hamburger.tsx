@@ -2,11 +2,11 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import { setOpeningMenu } from '../../store/mainSlice';
 import './hamburger.scss';
 
-const Hamburger:React.FC = () => {
+const Hamburger: React.FC = () => {
     const { openMenu } = useAppSelector(state => state.mainSlice);
     const dispatch = useAppDispatch();
 
-    const onOpenMenu = ():void => {
+    const onOpenMenu = (): void => {
         dispatch(setOpeningMenu());
     }
 

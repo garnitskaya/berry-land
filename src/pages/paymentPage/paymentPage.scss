@@ -1,8 +1,47 @@
 @import "../../style";
 
 .payment-page {
-    text-align: center;
-    padding: 70px 0;
+    padding: 70px 15px;
+    width: 100%;
     min-height: calc(100vh - 115px - 241px);
-    color: $dark-green;
+    max-height: 100%;
+
+    &__wrap {
+        margin: 0 auto;
+        padding: 25px 50px;
+        max-width: 1000px;
+        height: 100%;
+        border: 2px solid $green;
+        border-radius: 24px;
+        color: $dark-green;
+        background: $white;
+    }
+
+    &__title {
+        font-weight: nth($font-weight, 1);
+        font-size: 48px;
+        line-height: 52px;
+        text-align: center;
+        letter-spacing: 0.02em;
+    }
+}
+
+@include tablet {
+    .payment-page {
+        padding: 40px 15px;
+
+        &__wrap {
+            padding: 20px;
+        }
+
+        &__title {
+            font-size: 36px;
+            line-height: 40px;
+        }
+
+        &__subtitle {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
 }

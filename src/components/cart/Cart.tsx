@@ -9,13 +9,13 @@ import { ICard } from '../../types';
 
 import './cart.scss';
 
-const Cart = () => {
+const Cart: React.FC = () => {
     const { cards, dataForCart, itemsInCart, maxWidth } = useAppSelector(state => state.mainSlice);
-    const dispatch =useAppDispatch();
+    const dispatch = useAppDispatch();
     let element;
 
     useEffect(() => {
-        const itemsInCart :ICard[]= itemsCart(cards, dataForCart);
+        const itemsInCart: ICard[] = itemsCart(cards, dataForCart);
         dispatch(addItemsInCart(itemsInCart));
     }, [dataForCart, cards])
 
@@ -51,6 +51,7 @@ const Cart = () => {
                     type={'white'}
                     children={<Link to='/cart'>Корзина</Link>} />
             </div>
+
         </div>
     );
 };

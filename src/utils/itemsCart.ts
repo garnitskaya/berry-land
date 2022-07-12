@@ -28,5 +28,5 @@ export const itemsCart: ItemsCartType = (cards, dataForCart) => {
     })
         .filter(item => item);
 
-    return itemsInCart;
+    return itemsInCart as ICard[];
 }

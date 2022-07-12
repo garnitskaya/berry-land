@@ -1,0 +1,28 @@
+@import "../../style/";
+
+.field {
+    input {
+        margin-bottom: 15px;
+        font-family: nth($font-family, 2);
+        padding: 10px;
+        width: 100%;
+        height: 40px;
+        background: $white;
+        border: 2px solid $green;
+        border-radius: 5px;
+
+        &:focus {
+            border-color: $dark-green;
+        }
+    }
+
+    .error {
+        border-color: red;
+
+        &__message {
+            font-family: nth($font-family, 2);
+            font-size: 15px;
+            color: red;
+        }
+    }
+}

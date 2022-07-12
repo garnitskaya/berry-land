@@ -10,12 +10,12 @@ import { IHeaderLink } from '../../types';
 
 import './header.scss';
 
-const Header:React.FC = () => {
+const Header: React.FC = () => {
     const { openMenu, maxWidth } = useAppSelector(state => state.mainSlice);
     const dispatch = useAppDispatch();
     const ref = useRef<HTMLDivElement>(null!);
 
-    const resizeHandler = ():void => {
+    const resizeHandler = (): void => {
         const { clientWidth } = ref.current || {};
         dispatch(setMaxWidth(clientWidth));
     };
@@ -28,13 +28,13 @@ const Header:React.FC = () => {
         };
     }, []);
 
-    const link:IHeaderLink[] = [
+    const link: IHeaderLink[] = [
         { path: './', label: 'Иврит', img: true, src: `${flag}`, alt: 'flag', visible: true },
-        { path: './all', label: 'Все продукты',alt:'', visible: true },
-        { path: './recipes', label: 'Рецепты',alt:'',  visible: true },
+        { path: './all', label: 'Все продукты', alt: '', visible: true },
+        { path: './recipes', label: 'Рецепты', alt: '', visible: true },
         { path: './all', label: '', img: true, src: `${logo}`, alt: 'logo', visible: false },
-        { path: './delivery', label: 'Доставка',alt:'', visible: true },
-        { path: './payment', label: 'Оплата', alt:'', visible: true },
+        { path: './delivery', label: 'Доставка', alt: '', visible: true },
+        { path: './payment', label: 'Оплата', alt: '', visible: true },
         { path: './cart', label: maxWidth > 992 ? 'Корзина' : <HeaderLinkCart />, alt: 'cart-link', visible: false },
     ];
 

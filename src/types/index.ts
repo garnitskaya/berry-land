@@ -1,19 +1,19 @@
-export interface ICard{
-    id:number;
-    name:string;
-    img:string;
+export interface ICard {
+    id: number;
+    name: string;
+    img: string;
     price: string;
     newPrice?: string;
-    quantity:number;
-    group:string;
+    quantity: number;
+    group: string;
 }
 
-export interface IDataForCart{
-    id:number;
-    quantity:number;
+export interface IDataForCart {
+    id: number;
+    quantity: number;
 }
 
-export interface MainState{
+export interface MainState {
     cards: ICard[];
     loading: boolean;
     error: null | string;
@@ -23,17 +23,25 @@ export interface MainState{
     filteredItems: any[];
     maxWidth: number;
     openMenu: boolean;
+    visibleModal: boolean;
 }
 
-export interface IHeaderLink{
+export interface IHeaderLink {
     path: string;
-    label: string|JSX.Element;
+    label: string | JSX.Element;
     img?: boolean;
     src?: string;
     alt: string;
-    visible:boolean
+    visible: boolean
 }
 
-export interface ICartItem extends ICard{
+export interface ICartItem extends ICard {
     imgBlock?: boolean;
+}
+export interface IData {
+    id: string;
+    user: string;
+    number: string;
+    email: string;
+    itemsInCart: ICard[];
 }

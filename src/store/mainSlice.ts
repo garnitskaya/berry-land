@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios';
-import { ICard, IDataForCart, MainState } from '../types';
+import { ICard, IData, IDataForCart, MainState } from '../types';
 
 const initialState: MainState = {
     cards: [],
@@ -11,7 +11,8 @@ const initialState: MainState = {
     activeFilter: 'all',
     filteredItems: [],
     maxWidth: 1200,
-    openMenu: false
+    openMenu: false,
+    visibleModal: false
 }
 
 
@@ -24,6 +25,14 @@ export const fetchDate = createAsyncThunk(
         } catch (e) {
             return thunkAPI.rejectWithValue("Ошибка, что то пошло не так...");
         }
+    }
+)
+
+export const postDate = createAsyncThunk(
+    'main /postDate',
+    async (data: IData) => {
+        const response = await axios.post<IData[]>(' http://localhost:5000/data', data)
+        return response.data;
     }
 )
 
@@ -62,6 +71,13 @@ export const mainSlice = createSlice({
         },
         setClosingMenu: (state) => {
             state.openMenu = false;
+        },
+        setVisibleModal: (state, action: PayloadAction<boolean>) => {
+            state.visibleModal = action.payload;
+        },
+        setResettingCart: (state) => {
+            state.dataForCart = [];
+            state.itemsInCart = [];
         }
     },
     extraReducers: (builder) => {
@@ -91,6 +107,8 @@ export const {
     filtersChanged,
     setMaxWidth,
     setOpeningMenu,
-    setClosingMenu } = mainSlice.actions;
+    setClosingMenu,
+    setVisibleModal,
+    setResettingCart } = mainSlice.actions;
 
 export default mainSlice.reducer
