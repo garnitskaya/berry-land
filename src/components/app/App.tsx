@@ -7,7 +7,7 @@ import PaymentPage from '../../pages/paymentPage/PaymentPage';
 import RecipesPage from '../../pages/recipesPage/RecipesPage';
 import Footer from '../footer/Footer';
 
-const App:React.FC=()=> {
+const App: React.FC = () => {
     return (
         <BrowserRouter >
             <Header />

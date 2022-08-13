@@ -20,7 +20,7 @@ export const fetchDate = createAsyncThunk(
     'main /fetchDate',
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get<ICard[]>(' http://localhost:5000/cards')
+            const response = await axios.get<ICard[]>('/cards')
             return response.data;
         } catch (e) {
             return thunkAPI.rejectWithValue("Ошибка, что то пошло не так...");
@@ -31,7 +31,7 @@ export const fetchDate = createAsyncThunk(
 export const postDate = createAsyncThunk(
     'main /postDate',
     async (data: IData) => {
-        const response = await axios.post<IData[]>(' http://localhost:5000/data', data)
+        const response = await axios.post<IData[]>('/data', data)
         return response.data;
     }
 )
