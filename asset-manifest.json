@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/berry-land/static/css/main.95cc0581.css",
-    "main.js": "/berry-land/static/js/main.5d9526ad.js",
+    "main.js": "/berry-land/static/js/main.c6ae9fc3.js",
     "static/media/main.png": "/berry-land/static/media/main.c687fe514e8844c107b1.png",
     "static/media/mobile.png": "/berry-land/static/media/mobile.f77174146c35a9903241.png",
     "static/media/logo-icon.png": "/berry-land/static/media/logo-icon.ac45929e32341fb65891.png",
     "static/media/ShoppingCart.svg": "/berry-land/static/media/ShoppingCart.6167abff180de041f998e99a63b68ae8.svg",
     "index.html": "/berry-land/index.html",
     "main.95cc0581.css.map": "/berry-land/static/css/main.95cc0581.css.map",
-    "main.5d9526ad.js.map": "/berry-land/static/js/main.5d9526ad.js.map"
+    "main.c6ae9fc3.js.map": "/berry-land/static/js/main.c6ae9fc3.js.map"
   },
   "entrypoints": [
     "static/css/main.95cc0581.css",
-    "static/js/main.5d9526ad.js"
+    "static/js/main.c6ae9fc3.js"
   ]
 }
