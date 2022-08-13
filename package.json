@@ -1,6 +1,7 @@
 {
   "name": "berryland",
   "version": "0.1.0",
+  "homepage": "https://myusername.garnitskaya.io/berry-land",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
@@ -20,11 +21,15 @@
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
+  "proxy": "http://localhost:5000",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "json-server": "json-server --watch ./public/db.json --port 5000"
   },
   "eslintConfig": {
     "extends": [
