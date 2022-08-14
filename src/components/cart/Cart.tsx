@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/useTypedSelector';
 import { Link } from 'react-router-dom';
 import Button from '../button/Button';
@@ -12,6 +12,7 @@ import './cart.scss';
 const Cart: React.FC = () => {
     const { cards, dataForCart, itemsInCart, maxWidth } = useAppSelector(state => state.mainSlice);
     const dispatch = useAppDispatch();
+    const isMounted = useRef(false);
     let element;
 
     useEffect(() => {
@@ -20,8 +21,11 @@ const Cart: React.FC = () => {
     }, [dataForCart, cards])
 
     useEffect(() => {
-        localStorage.setItem('data', JSON.stringify(dataForCart));
-        localStorage.setItem('cards', JSON.stringify(itemsInCart));
+        if (isMounted.current) {
+            localStorage.setItem('data', JSON.stringify(dataForCart));
+            localStorage.setItem('cards', JSON.stringify(itemsInCart));
+        };
+        isMounted.current = true;
     }, [dataForCart, itemsInCart]);
 
     if (itemsInCart.length === 0) {

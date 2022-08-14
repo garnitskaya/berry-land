@@ -1,20 +1,20 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios';
 import { ICard, IData, IDataForCart, MainState } from '../types';
+import { getCartFromLocalStorage } from './../utils/getCartFromLocalStorage';
 
 const initialState: MainState = {
     cards: [],
     loading: false,
     error: null,
-    dataForCart: JSON.parse(localStorage.getItem('data') || '') || [],
-    itemsInCart: JSON.parse(localStorage.getItem('cards') || '') || [],
+    dataForCart: getCartFromLocalStorage('data'),
+    itemsInCart: getCartFromLocalStorage('cards'),
     activeFilter: 'all',
     filteredItems: [],
     maxWidth: 1200,
     openMenu: false,
     visibleModal: false
 }
-
 
 export const fetchDate = createAsyncThunk(
     'main /fetchDate',
