@@ -1,57 +1,52 @@
-@import '../../style';
+@import "../../style";
 
 .cart-page {
-    padding: 70px 15px;
-    width: 100%;
-    min-height: calc(100vh - 115px - 241px);
-    max-height: 100%;
+  @include page(start);
 
-    &__wrap {
-        margin: 0 auto;
-        padding: 25px 50px;
-        max-width: 1000px;
-        height: 100%;
-        border: 2px solid $green;
-        border-radius: 24px;
-        color: $dark-green;
-        background: $white;
-    }
+  &__wrap {
+    margin: 0 auto;
+    padding: 25px 50px;
+    max-width: 1000px;
+    height: 100%;
+    border: 2px solid $green;
+    border-radius: 24px;
+    color: $dark-green;
+    background: $white;
+  }
 
-    &__title {
-        font-weight: nth($font-weight, 1);
-        font-size: 48px;
-        line-height: 52px;
-        text-align: center;
-        letter-spacing: 0.02em;
-    }
+  &__title {
+    font-weight: nth($font-weight, 1);
+    font-size: 48px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
 
-    &__subtitle {
-        font-weight: nth($font-weight, 1);
-        font-size: 30px;
-        line-height: 42px;
-        text-align: center;
-        letter-spacing: 0.02em;
-    }
-
+  &__subtitle {
+    font-weight: nth($font-weight, 1);
+    font-size: 30px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
 }
 
 @include tablet {
-    .cart-page {
-        padding: 40px 15px;
+  .cart-page {
+    padding: 40px 15px;
 
-        &__wrap {
-            padding: 20px;
-        }
-
-        &__title {
-            font-size: 36px;
-            line-height: 40px;
-        }
-
-        &__subtitle {
-            font-size: 20px;
-            line-height: 30px;
-        }
+    &__wrap {
+      padding: 20px;
     }
 
+    &__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
 }

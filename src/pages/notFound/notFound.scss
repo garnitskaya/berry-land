@@ -1,0 +1,20 @@
+@import "../../style";
+
+.not-found {
+  font-family: "Nunito";
+  padding: 100px;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  flex: 1;
+  color: $dark-green;
+
+  span {
+    font-size: 64px;
+  }
+
+  &__description {
+    font-size: 25px;
+    font-weight: 600;
+  }
+}

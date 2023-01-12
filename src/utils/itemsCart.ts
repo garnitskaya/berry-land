@@ -1,32 +1,34 @@
-import { ICard, IDataForCart } from '../types';
+import { ICard, IDataForCart } from "../types";
 
-type ItemsCartType = (cards: ICard[], dataForCart: IDataForCart[]) => any[];
+type ItemsCartType = (cards: ICard[], dataForCart: IDataForCart[]) => ICard[];
 
 interface ItemObjType {
-    [key: string]: number;
+  [key: string]: number;
 }
 
 export const itemsCart: ItemsCartType = (cards, dataForCart) => {
-    const itemObj: ItemObjType = {};
+  const itemObj: ItemObjType = {};
 
-    for (let i = 0; i < dataForCart.length; ++i) {
-        let key = dataForCart[i].id
-        let value = +dataForCart[i].quantity
+  for (let i = 0; i < dataForCart.length; ++i) {
+    let key = dataForCart[i].id;
+    let value = +dataForCart[i].quantity;
 
-        if (itemObj[key]) {
-            itemObj[key] += value;
-        } else {
-            itemObj[key] = value;
-        }
+    if (itemObj[key]) {
+      itemObj[key] += value;
+    } else {
+      itemObj[key] = value;
     }
-    const itemsInCart = cards.map(card => {
-        for (const key in itemObj) {
-            if (card.id == +key) {
-                return { ...card, quantity: itemObj[key] };
-            }
-        }
-    })
-        .filter(item => item);
+  }
 
-    return itemsInCart as ICard[];
-}
+  const itemsInCart = cards
+    .map((card) => {
+      for (const key in itemObj) {
+        if (card.id === +key) {
+          return { ...card, quantity: itemObj[key] };
+        }
+      }
+    })
+    .filter((item) => item);
+
+  return itemsInCart as ICard[];
+};

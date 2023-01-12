@@ -1,88 +1,88 @@
-@import '../../style';
+@import "../../style";
 
 .banner-block {
-    padding-top: 300px;
-    text-align: center;
+  padding-top: 300px;
+  text-align: center;
 
-    &__title {
-        font-size: 69px;
-        line-height: 75px;
-        font-weight: nth($font-weight, 1);
-        color: $green;
-        letter-spacing: 0.02em;
-    }
+  &__title {
+    font-size: 69px;
+    line-height: 75px;
+    font-weight: nth($font-weight, 1);
+    color: $green;
+    letter-spacing: 0.02em;
+  }
 
-    &__line {
-        margin: 38px auto 0;
-        height: 3px;
-        width: 245px;
-        color: $green;
-        background-color: $green;
-    }
+  &__line {
+    margin: 38px auto 0;
+    height: 3px;
+    width: 245px;
+    color: $green;
+    background-color: $green;
+  }
 
-    &__descr {
-        margin-top: 26px;
-        font-weight: nth($font-weight, 1);
-        font-size: 48px;
-        line-height: 52px;
-        color: $dark-green;
-        letter-spacing: 0.02em;
-    }
+  &__descr {
+    margin-top: 26px;
+    font-weight: nth($font-weight, 1);
+    font-size: 48px;
+    line-height: 52px;
+    color: $dark-green;
+    letter-spacing: 0.02em;
+  }
 }
 
 @include tablet-portrait {
-    .banner-block {
-        padding-top: 25%;
+  .banner-block {
+    padding-top: 25%;
 
-        &__title {
-            font-size: 59px;
-            line-height: 65px;
-        }
-
-        &__line {
-            margin: 34px auto 0;
-        }
-
-        &__descr {
-            margin-top: 26px;
-            font-size: 40px;
-            line-height: 44px;
-        }
+    &__title {
+      font-size: 59px;
+      line-height: 65px;
     }
+
+    &__line {
+      margin: 34px auto 0;
+    }
+
+    &__descr {
+      margin-top: 26px;
+      font-size: 40px;
+      line-height: 44px;
+    }
+  }
 }
 
 @include tablet {
-    .banner-block {
-        &__title {
-            font-size: 49px;
-            line-height: 53px;
-        }
-
-        &__descr {
-            margin-top: 22px;
-            font-size: 32px;
-            line-height: 35px;
-        }
+  .banner-block {
+    &__title {
+      font-size: 49px;
+      line-height: 53px;
     }
+
+    &__descr {
+      margin-top: 22px;
+      font-size: 32px;
+      line-height: 35px;
+    }
+  }
 }
 
 @include mobil {
-    .banner-block {
-        padding-top: 45%;
+  .banner-block {
+    padding-top: 45%;
 
-        &__title {
-            font-size: 39px;
-            line-height: 43px;
-        }
-
-        &__line {
-            margin: 20px auto 0;
-        }
-
-        &__descr {
-            margin-top: 18px;
-            font-size: 25px;
-            line-height: 28px;
-        }
+    &__title {
+      font-size: 39px;
+      line-height: 43px;
     }
+
+    &__line {
+      margin: 20px auto 0;
+    }
+
+    &__descr {
+      margin-top: 18px;
+      font-size: 25px;
+      line-height: 28px;
+    }
+  }
 }

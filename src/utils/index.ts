@@ -1,6 +1,3 @@
-import { calcTotalPrice, calcTotalQuantity } from './calcTotalPrice';
-import { itemsCart } from './itemsCart';
-import { renderItem } from './renderItem';
-
-export { calcTotalPrice, calcTotalQuantity, itemsCart, renderItem };
-
+export * from "./calcTotalPrice";
+export * from "./itemsCart";
+export * from "./renderItem";

@@ -1,26 +1,33 @@
-import classNames from 'classnames';
-import './btton.scss';
+import classNames from "classnames";
 
-interface IButton{
-    children:React.ReactNode;
-    onClick?: () => void;
-    type?:string
+import "./btton.scss";
+
+interface IButton {
+  children: React.ReactNode;
+  onClick?: () => void;
+  color?: string;
+  type?: "submit" | "button";
+  style?: object;
 }
 
-const Button:React.FC<IButton> = ({ children, onClick, type }) => {
-    const btnClass = classNames({
-        'btn': true,
-        'btn__white': type === 'white',
-        'btn__green': type === 'green',
-    });
+const Button: React.FC<IButton> = ({
+  children,
+  onClick,
+  color,
+  type,
+  style,
+}) => {
+  const btnClass = classNames({
+    btn: true,
+    btn__white: color === "white",
+    btn__green: color === "green",
+  });
 
-    return (
-        <button
-            onClick={onClick}
-            className={btnClass}>
-            {children}
-        </button>
-    );
+  return (
+    <button style={style} type={type} onClick={onClick} className={btnClass}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

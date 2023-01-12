@@ -1,0 +1,43 @@
+@import "../../style/";
+
+.contact-details {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  &__block {
+    flex: 1 1 60%;
+    flex-direction: column;
+  }
+
+  &__line {
+    margin: 0 auto;
+    position: relative;
+    width: 250px;
+    height: 50px;
+
+    svg {
+      transform: rotateZ(-90deg);
+      position: absolute;
+      top: -200%;
+      left: 48%;
+    }
+  }
+}
+
+@include tablet {
+  .contact-details {
+    gap: 10px;
+
+    &__block {
+      flex-basis: 50%;
+    }
+  }
+}
+
+@include mobil {
+  .contact-details {
+    flex-direction: column;
+  }
+}

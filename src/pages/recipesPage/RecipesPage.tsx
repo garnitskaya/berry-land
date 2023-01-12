@@ -1,11 +1,7 @@
-import './recipesPage.scss';
+import "./recipesPage.scss";
 
 const RecipesPage = () => {
-    return (
-        <div className='recipes-page'>
-            RecipesPage
-        </div>
-    );
+  return <div className="recipes-page">RecipesPage</div>;
 };
 
 export default RecipesPage;

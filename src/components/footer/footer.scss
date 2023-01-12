@@ -1,60 +1,60 @@
-@import '../../style';
+@import "../../style";
 
 .footer {
-    font-family: nth($font-family, 2);
-    padding: 74px 0 56px;
-    background: $green;
+  font-family: nth($font-family, 2);
+  padding: 74px 0 56px;
+  background: $green;
 
-    &__wrap {
-        display: flex;
-        justify-content: center;
-        gap: 135px;
-    }
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    gap: 135px;
+  }
 
-    &__items {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-    }
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
 
-    &__title {
-        font-weight: nth($font-weight, 5);
-        font-size: 18px;
-        line-height: 25px;
-        letter-spacing: 0.02em;
-    }
+  &__title {
+    font-weight: nth($font-weight, 5);
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+  }
 
-    &__item {
-        font-weight: nth($font-weight, 3);
-        font-size: 18px;
-        line-height: 25px;
-        letter-spacing: 0.02em;
-    }
+  &__item {
+    font-weight: nth($font-weight, 3);
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+  }
 }
 
 @include laptop {
-    .footer {
-        &__wrap {
-            gap: 90px;
-        }
+  .footer {
+    &__wrap {
+      gap: 90px;
     }
+  }
 }
 
 @include tablet-portrait {
-    .footer {
-        .container {
-            display: flex;
-            justify-content: center;
-        }
-
-        &__wrap {
-            max-width: 80%;
-            gap: 50px 80px;
-            flex-wrap: wrap;
-        }
-
-        &__items {
-            flex: 0 1 186px;
-        }
+  .footer {
+    .container {
+      display: flex;
+      justify-content: center;
     }
+
+    &__wrap {
+      max-width: 80%;
+      gap: 50px 80px;
+      flex-wrap: wrap;
+    }
+
+    &__items {
+      flex: 0 1 186px;
+    }
+  }
 }

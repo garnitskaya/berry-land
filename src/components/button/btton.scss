@@ -1,14 +1,13 @@
-@import '../../style';
+@import "../../style";
 
 .btn {
-    @include btn($white, $dark-green);
+  @include btn($white, $dark-green);
 
-    &__green {
-        @include btn($white, $green);
-    }
+  &__green {
+    @include btn($white, $green);
+  }
 
-    &__white {
-        @include btn($grey, $white, 1px solid $grey);
-    }
-
+  &__white {
+    @include btn($grey, $white, 1px solid $grey);
+  }
 }

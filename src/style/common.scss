@@ -1,40 +1,46 @@
 * {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: nth($font-family, 1);
-    background: map-get($bg, "main");
-    color: $white;
+  font-family: nth($font-family, 1);
+  background: map-get($bg, "main");
+  color: $white;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
 }
 
 .container {
-    max-width: 1638px;
-    padding: 0 15px;
-    margin: 0 auto;
+  max-width: 1638px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 .title__error {
-    width: 100%;
-    padding: 10px;
-    font-size: 27px;
-    font-weight: nth($font-weight, 1);
-    color: $red;
-    text-align: center;
-    letter-spacing: 0.02em;
+  width: 100%;
+  padding: 10px;
+  font-size: 27px;
+  font-weight: nth($font-weight, 1);
+  color: $red;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
 @include mobil {
-    body {
-        background: map-get($bg, "mobile");
-    }
+  body {
+    background: map-get($bg, "mobile");
+  }
 }

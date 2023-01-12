@@ -1,47 +1,47 @@
 export interface ICard {
-    id: number;
-    name: string;
-    img: string;
-    price: string;
-    newPrice?: string;
-    quantity: number;
-    group: string;
+  id: number;
+  name: string;
+  img: string;
+  price: string;
+  newPrice?: string;
+  quantity: number;
+  group: string;
 }
 
 export interface IDataForCart {
-    id: number;
-    quantity: number;
+  id: number;
+  quantity: number;
 }
 
 export interface MainState {
-    cards: ICard[];
-    loading: boolean;
-    error: null | string;
-    dataForCart: IDataForCart[];
-    itemsInCart: ICard[];
-    activeFilter: string;
-    filteredItems: any[];
-    maxWidth: number;
-    openMenu: boolean;
-    visibleModal: boolean;
+  cards: ICard[];
+  card: ICard;
+  loading: boolean;
+  error: null | string;
+  dataForCart: IDataForCart[];
+  itemsInCart: ICard[];
+  activeFilter: string;
+  filteredItems: any[];
+  openMenu: boolean;
+  visibleModal: boolean;
 }
 
 export interface IHeaderLink {
-    path: string;
-    label: string | JSX.Element;
-    img?: boolean;
-    src?: string;
-    alt: string;
-    visible: boolean
+  path: string;
+  label: string | JSX.Element;
+  img?: boolean;
+  src?: string;
+  alt: string;
+  visible: boolean
 }
 
 export interface ICartItem extends ICard {
-    imgBlock?: boolean;
+  imgBlock?: boolean;
 }
 export interface IData {
-    id: string;
-    user: string;
-    number: string;
-    email: string;
-    itemsInCart: ICard[];
+  id: string;
+  user: string;
+  number: string;
+  email: string;
+  itemsInCart: ICard[];
 }

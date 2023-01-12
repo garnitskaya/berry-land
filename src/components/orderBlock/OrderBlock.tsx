@@ -1,41 +1,64 @@
-import { useAppDispatch } from '../../hooks/useTypedSelector';
-import { addDataForCart, dec, inc } from '../../store/mainSlice';
-import { IDataForCart } from '../../types';
-import Button from '../button/Button';
+import { useState, useEffect } from "react";
 
-import './orderBlock.scss';
+import { Button } from "..";
+import { useAppDispatch } from "../../hooks";
+import { addDataForCart, dec, inc } from "../../store/mainSlice";
+import { IDataForCart } from "../../types";
 
-const OrderBlock:React.FC<IDataForCart> = ({ id, quantity }) => {
-    const dispatch = useAppDispatch();
+import "./orderBlock.scss";
 
-    const decItem = ():void => {
-        if (quantity > 0) {
-            dispatch(dec(id));
-        }
-    };
+interface PropsType extends IDataForCart {
+  array?: boolean;
+}
 
-    const incItem = ():void => {
-        dispatch(inc(id));
-    };
+const OrderBlock: React.FC<PropsType> = ({ id, quantity, array = false }) => {
+  const [value, setValue] = useState(quantity);
+  const dispatch = useAppDispatch();
 
-    const onAddItems = ():void => {
-        if (quantity > 0) {
-            dispatch(addDataForCart({ id, quantity }));
-        }
-    };
+  useEffect(() => {
+    setValue(quantity);
+  }, [quantity]);
 
-    return (
-        <div className='order-block'>
-            <div className='order-block__items'>
-                <button className='order-block__item' onClick={decItem}>-</button>
-                <div className='order-block__counter'>{quantity}</div>
-                <button className='order-block__item' onClick={incItem}>+</button>
-            </div>
-            <Button
-                onClick={onAddItems}
-                children='В корзину' />
-        </div>
-    );
+  const decItem = (): void => {
+    if (value > 0) {
+      dispatch(dec({ id, array, value }));
+    }
+  };
+
+  const incItem = (): void => {
+    dispatch(inc({ id, array, value }));
+  };
+
+  const onAddItems = (): void => {
+    const quantity = value;
+    if (value > 0) {
+      dispatch(addDataForCart({ id, quantity }));
+    }
+  };
+
+  const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(+e.target.value);
+  };
+
+  return (
+    <div className="order-block">
+      <div className="order-block__items">
+        <button className="order-block__item" onClick={decItem}>
+          -
+        </button>
+        <input
+          type="number"
+          onChange={onChangeValue}
+          value={value}
+          className="order-block__counter"
+        />
+        <button className="order-block__item" onClick={incItem}>
+          +
+        </button>
+      </div>
+      <Button onClick={onAddItems} children="В корзину" />
+    </div>
+  );
 };
 
 export default OrderBlock;

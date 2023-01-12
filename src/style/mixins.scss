@@ -1,19 +1,53 @@
 %extend-btn {
-    font-family: nth($font-family, 2);
-    padding: 12px 8px;
-    min-width: 114px;
-    height: 49px;
-    border-radius: 16px;
-    font-weight: nth($font-weight, 4);
-    font-size: 18px;
-    line-height: 25px;
-    letter-spacing: 0.02em;
-    cursor: pointer;
+  font-family: nth($font-family, 2);
+  padding: 12px 8px;
+  min-width: 114px;
+  height: 49px;
+  border-radius: 16px;
+  font-weight: nth($font-weight, 4);
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
 }
 
 @mixin btn($color, $background, $border: false) {
-    @extend %extend-btn;
-    color: $color;
-    background: $background;
-    border: $border;
+  @extend %extend-btn;
+  color: $color;
+  background: $background;
+  border: $border;
+}
+
+%extend-page {
+  padding: 70px 15px;
+  flex: 1;
+  color: $dark-green;
+}
+
+@mixin page($ta: center) {
+  @extend %extend-page;
+  text-align: $ta;
+}
+
+%extend-quantity {
+  font-family: nth($font-family, 3);
+  font-weight: nth($font-weight, 4);
+  letter-spacing: 0.02em;
+  color: $green;
+  position: absolute;
+  top: -16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $dark-green;
+  border-radius: 50%;
+}
+
+@mixin quantity($fz, $lh, $w, $l, $r) {
+  font-size: $fz;
+  line-height: $lh;
+  width: $w;
+  height: $w;
+  left: $l;
+  right: $r;
 }

@@ -1,85 +1,91 @@
-@import '../../style';
+@import "../../style";
 
 .header {
-    &__link {
-        font-weight: nth($font-weight, 4);
-        font-size: 18px;
-        line-height: 25px;
-        letter-spacing: 0.02em;
-        transition: .3s color ease-in-out;
-        border-bottom: 0px solid $white;
+  &__link {
+    font-weight: nth($font-weight, 4);
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    transition: 0.3s color ease-in-out;
+    border-bottom: 0px solid $white;
 
-        &-flag {
-            margin-left: 5px;
-            width: 24px;
-            height: 17px;
-            vertical-align: middle;
-
-        }
-
-        &-logo {
-            margin-top: -25px;
-            width: 112px;
-            height: 112px;
-            border: none;
-        }
-
-        &:hover {
-            color: $dark-green;
-            border-bottom: 2.5px solid $white;
-        }
-
-        &.logo:hover,
-        &.cart-link:hover {
-            border-bottom: none;
-        }
-
-        &.logo.active,
-        &.cart-link.active {
-            border-bottom: none;
-        }
+    &-flag {
+      margin-left: 5px;
+      width: 24px;
+      height: 17px;
+      vertical-align: middle;
     }
 
-    .active {
-        color: $dark-green;
-        border-bottom: 2.5px solid $white;
+    &-logo {
+      margin-top: -25px;
+      width: 112px;
+      height: 112px;
+      border: none;
     }
 
+    &:hover {
+      color: $dark-green;
+      border-bottom: 2.5px solid $white;
+    }
+
+    &.cart-link {
+      position: relative;
+    }
+
+    & .quantity {
+      @include quantity(18px, 22px, 30px, auto, -19px);
+    }
+
+    &.logo:hover,
+    &.cart-link:hover {
+      border-bottom: none;
+    }
+
+    &.logo.active,
+    &.cart-link.active {
+      border-bottom: none;
+    }
+  }
+
+  .active {
+    color: $dark-green;
+    border-bottom: 2.5px solid $white;
+  }
 }
 
 @include tablet-portrait {
-    .header {
-        &__link {
-            &-logo {
-                margin-top: -8px;
-                width: 90px;
-                height: 90px;
-            }
-        }
+  .header {
+    &__link {
+      &-logo {
+        margin-top: -8px;
+        width: 90px;
+        height: 90px;
+      }
     }
+  }
 }
 
 @include tablet {
-    .header {
-        &__menu {
-            padding: 0 28px;
-            height: 80px;
-            list-style-type: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 50;
-        }
-
-        &__link {
-            font-size: 24px;
-            line-height: 33px;
-
-            &-logo {
-                margin-top: 40px;
-                width: 90px;
-                height: 90px;
-            }
-        }
+  .header {
+    &__menu {
+      padding: 0 28px;
+      height: 80px;
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 50;
     }
+
+    &__link {
+      font-size: 24px;
+      line-height: 33px;
+
+      &-logo {
+        margin-top: 40px;
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
 }

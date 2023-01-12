@@ -1,0 +1,11 @@
+@import "../../style";
+
+.card-item-page {
+  @include page;
+}
+
+@include tablet {
+  .card-item-page {
+    padding: 40px 15px;
+  }
+}

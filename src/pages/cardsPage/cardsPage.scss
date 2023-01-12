@@ -1,35 +1,33 @@
-@import '../../style';
+@import "../../style";
 
 .cards-page {
-    padding: 72px 0 90px;
+  padding: 72px 0 90px;
 
-    &__wrap {
-        display: flex;
-        gap: 28px;
-        justify-content: space-between;
-    }
+  &__wrap {
+    display: flex;
+    gap: 28px;
+    justify-content: space-between;
+  }
 }
 
 @include desktop {
-    .cards-page {
-        &__wrap {
-            padding: 0 20px 0 0;
-        }
+  .cards-page {
+    &__wrap {
+      padding: 0 20px 0 0;
     }
+  }
 }
 
 @include laptop {
-    .cards-page {
-        &__wrap {
-            padding: 0;
-        }
+  .cards-page {
+    &__wrap {
+      padding: 0;
     }
-
+  }
 }
 
 @include tablet {
-    .cards-page {
-        padding: 32px 0;
-    }
-
+  .cards-page {
+    padding: 32px 0;
+  }
 }
