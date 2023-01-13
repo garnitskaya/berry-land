@@ -1,23 +1,14 @@
-@import '../../style';
+@import "../../style";
 
 .card-item {
   position: relative;
-  margin: 0 auto;
-  padding: 25px 50px;
-  //min-width: 1000px;
-  max-width: 1200px;
+  max-width: 1200px !important;
   min-height: 50vh;
-  height: 100%;
-  border: 2px solid #8cc63f;
-  border-radius: 24px;
-  color: #2f4f3c;
-  background: #ffffff;
-  box-shadow: 0px 0px 16px rgba(184, 180, 176, 0.5);
   overflow: hidden;
 
   &__sale {
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       border: 40px solid $green;
       border-bottom: 40px solid transparent;
@@ -27,7 +18,7 @@
     }
 
     &::after {
-      content: 'Скидка!';
+      content: "Скидка!";
       font-family: nth($font-family, 2);
       position: absolute;
       top: 18px;
@@ -44,15 +35,6 @@
   &__block {
     margin-top: 40px;
     display: flex;
-  }
-
-  &__title {
-    font-weight: nth($font-weight, 1);
-    font-size: 48px;
-    line-height: 52px;
-    text-align: center;
-    letter-spacing: 0.02em;
-    white-space: pre-wrap;
   }
 
   &__img {
@@ -107,11 +89,6 @@
   .card-item {
     padding: 30px;
     min-height: auto;
-
-    &__title {
-      font-size: 36px;
-      line-height: 40px;
-    }
 
     &__img {
       height: 200px;

@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../hooks";
 import { deleteItemInCart } from "../../store/mainSlice";
-import { ICartItem } from "../../types";
+import { ICard, ICartItem } from "../../types";
 
 import "./cartItem.scss";
 
@@ -16,6 +16,9 @@ const CartItem: React.FC<ICartItem> = ({
   const dispatch = useAppDispatch();
 
   const deleteItem = (): void => {
+    const itemsInCart = JSON.parse(localStorage.getItem("cardsInCart") || "") as ICard[];
+    const newItemsInCart = itemsInCart.filter((item) => item.id != id);
+    localStorage.setItem("cardsInCart", JSON.stringify(newItemsInCart));
     dispatch(deleteItemInCart(id));
   };
 

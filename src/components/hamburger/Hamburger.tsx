@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setOpeningMenu } from "../../store/mainSlice";
 
@@ -13,7 +14,7 @@ const Hamburger: React.FC = () => {
 
   return (
     <div
-      className={`hamburger ${openMenu ? "hamburger__active" : ""}`}
+      className={classNames("hamburger", { "hamburger__active ": openMenu })}
       onClick={onOpenMenu}
     >
       <span></span>

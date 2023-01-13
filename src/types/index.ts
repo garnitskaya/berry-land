@@ -12,6 +12,7 @@ export interface IDataForCart {
   id: number;
   quantity: number;
 }
+export type ActiveFilterType = "" | "superfood" | "berries";
 
 export interface MainState {
   cards: ICard[];
@@ -20,7 +21,7 @@ export interface MainState {
   error: null | string;
   dataForCart: IDataForCart[];
   itemsInCart: ICard[];
-  activeFilter: string;
+  activeFilter: ActiveFilterType;
   filteredItems: any[];
   openMenu: boolean;
   visibleModal: boolean;

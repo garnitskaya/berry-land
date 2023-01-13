@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Hamburger, HeaderLink, HeaderLinkCart } from "..";
 import { useAppSelector, useMatchMedia } from "../../hooks";
 import { IHeaderLink } from "../../types";
@@ -38,7 +39,7 @@ const Header: React.FC = () => {
             {itemsHidden}
           </ul>
         )}
-        <ul className={`header__list ${openMenu ? "header__list__active" : ""}`} >
+        <ul className={classNames("header__list", { "header__list__active":openMenu })} >
           {isMobile ? itemsVisible : items}
         </ul>
       </div>

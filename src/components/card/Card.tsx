@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Link } from "react-router-dom";
 
 import { OrderBlock } from "..";
@@ -14,7 +15,7 @@ const Card: React.FC<ICard> = ({
   quantity,
 }) => {
   return (
-    <div className={`card ${newPrice ? "card__sale" : null}`}>
+    <div className={classNames("card", { "card__sale": newPrice })}>
       <Link to={String(id)} className="card__title">
         {name}
       </Link>
@@ -23,7 +24,7 @@ const Card: React.FC<ICard> = ({
       </Link>
       <div className="card__price">
         {newPrice ? <span className="card__price-new">{newPrice}₪</span> : null}
-        <span className={newPrice ? "card__price-old" : ""}>{price}₪</span>
+        <span className={classNames({ "card__price-old": newPrice })}>{price}₪</span>
         за 2.5 кг
       </div>
       <OrderBlock id={id} quantity={quantity} array />

@@ -46,7 +46,7 @@ const CartBlocks: React.FC<ICartBlocks> = ({ visibility = true, cl = "" }) => {
             {itemsInCart.length > 0 ? calcTotalPrice(itemsInCart) : 0}₪
           </span>
         </div>
-        {visibility && (
+        {visibility && itemsInCart.length > 0 && (
           <Button
             color={"green"}
             children={<Link to="/payment">Оформить заказ</Link>}

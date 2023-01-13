@@ -41,8 +41,7 @@
       border-bottom: none;
     }
 
-    &.logo.active,
-    &.cart-link.active {
+    &.logo.active {
       border-bottom: none;
     }
   }
@@ -56,6 +55,10 @@
 @include tablet-portrait {
   .header {
     &__link {
+      &.cart-link.active {
+        border-bottom: none;
+      }
+
       &-logo {
         margin-top: -8px;
         width: 90px;

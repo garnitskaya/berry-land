@@ -1,0 +1,32 @@
+@import "../../style";
+
+.wrap-block {
+  margin: 0 auto;
+  padding: 25px 50px;
+  max-width: 1000px;
+  height: 100%;
+  border: 2px solid $green;
+  border-radius: 24px;
+  color: $dark-green;
+  background: $white;
+  box-shadow: 0px 0px 16px rgba(184, 180, 176, 0.5);
+
+  &__title {
+    font-weight: nth($font-weight, 1);
+    font-size: 48px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+}
+
+@include tablet {
+  .wrap-block {
+    padding: 20px;
+
+    &__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+  }
+}

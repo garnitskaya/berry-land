@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ICard, IData, IDataForCart, MainState } from "../types";
+import { ActiveFilterType, ICard, IData, IDataForCart, MainState } from "../types";
 import { getCartFromLocalStorage } from "./../utils/getCartFromLocalStorage";
 
 const initialState: MainState = {
@@ -10,16 +10,17 @@ const initialState: MainState = {
   error: null,
   dataForCart: getCartFromLocalStorage("data"),
   itemsInCart: getCartFromLocalStorage("cardsInCart"),
-  activeFilter: "all",
+  activeFilter: "",
   filteredItems: [],
   openMenu: false,
   visibleModal: false,
 };
 
-export const fetchDate = createAsyncThunk<ICard[], undefined, { rejectValue: string }>(
-  "main /fetchDate", async (_, { rejectWithValue }) => {
+export const fetchDate = createAsyncThunk<ICard[], string, { rejectValue: string }>(
+  "main /fetchDate", async (group, { rejectWithValue }) => {
     try {
-      const response = await axios.get<ICard[]>("http://localhost:3001/cards");
+      const filter = `group=${group}`;
+      const response = await axios.get<ICard[]>(`/cards?${group && filter}`);
       return response.data;
     } catch (e) {
       console.log(e);
@@ -30,7 +31,7 @@ export const fetchDate = createAsyncThunk<ICard[], undefined, { rejectValue: str
 export const fetchDateItem = createAsyncThunk<ICard, number, { rejectValue: string }>(
   "main /fetchDateItem", async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.get<ICard>(`http://localhost:3001/cards/${id}`);
+      const response = await axios.get<ICard>(`/cards/${id}`);
       return response.data;
     } catch (e) {
       console.log(e);
@@ -88,10 +89,10 @@ export const mainSlice = createSlice({
         (item) => item.id !== action.payload
       );
     },
-    filtersChanged: (state, action: PayloadAction<string>) => {
+    filtersChanged: (state, action: PayloadAction<ActiveFilterType>) => {
       state.activeFilter = action.payload;
       state.filteredItems =
-        action.payload === "all"
+        action.payload === ""
           ? state.cards
           : state.cards.filter((item) => item.group === action.payload);
     },
@@ -112,7 +113,6 @@ export const mainSlice = createSlice({
       })
       .addCase(fetchDate.fulfilled, (state, action: PayloadAction<ICard[]>) => {
         state.loading = false;
-        state.activeFilter = "all";
         state.cards = action.payload;
         state.filteredItems = action.payload;
       })

@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import "./field.scss";
 
 interface IField {
@@ -27,7 +28,7 @@ const Field: React.FC<IField> = ({
       <input
         onChange={(e) => onChange(e)}
         onBlur={onBlur}
-        className={`${isDirty && isEmpty ? `error` : ""}`}
+        className={classNames({ "error": isDirty && isEmpty })}
         type={type}
         placeholder={placeholder}
         value={value}

@@ -1,14 +1,13 @@
-import { ContactDetails } from "../../components";
+import { ContactDetails, WrapBlock } from "../../components";
 
 import "./paymentPage.scss";
 
 const PaymentPage = () => {
   return (
     <div className="payment-page">
-      <div className="payment-page__wrap">
-        <h1 className="payment-page__title">Оформление заказа</h1>
+      <WrapBlock title='Оформление заказа'>
         <ContactDetails />
-      </div>
+      </WrapBlock>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import classNames from "classnames";
 
-import { Button, OrderBlock, Spinner } from "..";
+import { Button, OrderBlock, Spinner, WrapBlock } from "..";
 import {
   useAppDispatch,
   useAppSelector,
@@ -34,8 +35,10 @@ const CardItem = () => {
         <Spinner />
       ) : (
         <>
-          <div className={`card-item ${newPrice ? "card-item__sale" : null}`}>
-            <h2 className="card-item__title">{name}</h2>
+          <WrapBlock
+            title={name}
+            cl={classNames("card-item", { "card-item__sale": newPrice })}
+          >
             <div className="card-item__block">
               <img className="card-item__img" src={img} alt={name} />
               <div className="card-item__prices">
@@ -49,7 +52,7 @@ const CardItem = () => {
                   {newPrice ? (
                     <span className="card-item__price-new">{newPrice}₪</span>
                   ) : null}
-                  <span className={newPrice ? "card-item__price-old" : ""}>
+                  <span className={classNames({ "card-item__price-old": newPrice })}>
                     {price}₪
                   </span>
                   за 2.5 кг
@@ -57,7 +60,7 @@ const CardItem = () => {
                 <OrderBlock id={Number(id)} quantity={quantity} />
               </div>
             </div>
-          </div>
+          </WrapBlock>
           <Button
             type="submit"
             children="назад"
