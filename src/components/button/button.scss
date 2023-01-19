@@ -1,0 +1,40 @@
+@import "../../style";
+
+.btn {
+  @include btn($white, $dark-green);
+
+  &__green {
+    @include btn($white, $green);
+  }
+
+  &__white {
+    @include btn($grey, $white, 1px solid $grey);
+  }
+
+  &__login {
+    background: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 0;
+    height: auto;
+    min-width: auto;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+
+  &:disabled {
+    opacity: 0.7
+  }
+}
+
+@include tablet-portrait {
+  .btn {
+    &__login {
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+  }
+}
