@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import "./btton.scss";
+import "./button.scss";
 
 interface IButton {
   children: React.ReactNode;
@@ -8,6 +8,7 @@ interface IButton {
   color?: string;
   type?: "submit" | "button";
   style?: object;
+  disabled?: boolean;
 }
 
 const Button: React.FC<IButton> = ({
@@ -16,15 +17,22 @@ const Button: React.FC<IButton> = ({
   color,
   type,
   style,
+  disabled
 }) => {
   const btnClass = classNames({
     btn: true,
     btn__white: color === "white",
     btn__green: color === "green",
+    btn__login: color === "transparent"
   });
 
   return (
-    <button style={style} type={type} onClick={onClick} className={btnClass}>
+    <button
+      disabled={disabled}
+      style={style}
+      type={type}
+      onClick={onClick}
+      className={btnClass}>
       {children}
     </button>
   );

@@ -10,12 +10,20 @@
   color: $white;
   z-index: 100;
 
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+  }
+
   &__list {
-    padding: 55px 0 0 0;
+    padding: 39px 0 16px 0;
     max-height: 115px;
     height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 44px;
     list-style-type: none;
   }
@@ -25,6 +33,10 @@
   .header {
     &__list {
       gap: 20px;
+
+      li:nth-child(7) {
+        order: 8;
+      }
     }
   }
 }
@@ -62,10 +74,6 @@
         opacity: 1;
         z-index: 50;
       }
-    }
-
-    &__list li:first-child {
-      order: 5;
     }
   }
 }

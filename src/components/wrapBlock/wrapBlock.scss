@@ -9,7 +9,7 @@
   border-radius: 24px;
   color: $dark-green;
   background: $white;
-  box-shadow: 0px 0px 16px rgba(184, 180, 176, 0.5);
+  box-shadow: $bs;
 
   &__title {
     font-weight: nth($font-weight, 1);

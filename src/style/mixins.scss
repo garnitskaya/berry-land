@@ -1,4 +1,4 @@
-@mixin btn($color, $background, $border: false) {
+@mixin btn($color, $background, $border: none) {
   @extend %extend-btn;
   color: $color;
   background: $background;

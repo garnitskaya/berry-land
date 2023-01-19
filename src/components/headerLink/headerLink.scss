@@ -7,7 +7,7 @@
     line-height: 25px;
     letter-spacing: 0.02em;
     transition: 0.3s color ease-in-out;
-    border-bottom: 0px solid $white;
+    border-bottom: 2.5px solid transparent;
 
     &-flag {
       margin-left: 5px;
@@ -20,7 +20,6 @@
       margin-top: -25px;
       width: 112px;
       height: 112px;
-      border: none;
     }
 
     &:hover {
@@ -30,14 +29,19 @@
 
     &.cart-link {
       position: relative;
+      border: none;
     }
 
     & .quantity {
       @include quantity(18px, 22px, 30px, auto, -19px);
     }
 
-    &.logo:hover,
-    &.cart-link:hover {
+    &.logo {
+      margin-top: 63px;
+      border: none;
+    }
+
+    &.logo:hover {
       border-bottom: none;
     }
 
@@ -55,7 +59,9 @@
 @include tablet-portrait {
   .header {
     &__link {
-      &.cart-link.active {
+
+      &.cart-link.active,
+      &.cart-link:hover {
         border-bottom: none;
       }
 
@@ -67,6 +73,15 @@
     }
   }
 }
+
+@include tablet-portrait {
+  .header {
+    &__link {
+      font-size: 16px;
+    }
+  }
+}
+
 
 @include tablet {
   .header {
@@ -85,7 +100,7 @@
       line-height: 33px;
 
       &-logo {
-        margin-top: 40px;
+        margin-top: -19px;
         width: 90px;
         height: 90px;
       }

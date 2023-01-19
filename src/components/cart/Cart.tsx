@@ -1,33 +1,20 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { Button, CartItem } from "..";
-import { useAppSelector, useUpdateItemInCart } from "../../hooks";
-import { renderItem, calcTotalPrice } from "../../utils";
+import { useAppSelector } from "../../hooks";
+import { renderItem } from "../../utils";
 
 import "./cart.scss";
 
 const Cart: React.FC = () => {
-  const { cards, dataForCart, itemsInCart } = useAppSelector((state) => state.mainSlice);
+  const { cards, totalPrice } = useAppSelector((state) => state.cart);
 
-  const isMounted = useRef(false);
   let element;
 
-  useUpdateItemInCart(cards, dataForCart);
-
-  useEffect(() => {
-    if (isMounted.current) {
-      localStorage.setItem("cards", JSON.stringify(cards));
-      localStorage.setItem("data", JSON.stringify(dataForCart));
-      localStorage.setItem("cardsInCart", JSON.stringify(itemsInCart));
-    }
-    isMounted.current = true;
-  }, [dataForCart, itemsInCart]);
-
-  if (itemsInCart.length === 0) {
+  if (cards.length === 0) {
     element = <div className="cart-item__title">Корзина пустая</div>;
   } else {
-    element = renderItem(itemsInCart, CartItem);
+    element = renderItem(cards, CartItem);
   }
 
   return (
@@ -52,7 +39,7 @@ const Cart: React.FC = () => {
         <div className="cart__subtotal">
           <span>Подытог: </span>
           <span>
-            {itemsInCart.length > 0 ? calcTotalPrice(itemsInCart) : 0}₪
+            {cards.length > 0 ? totalPrice : 0}₪
           </span>
         </div>
       </div>

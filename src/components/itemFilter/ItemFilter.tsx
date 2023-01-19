@@ -1,13 +1,13 @@
-import classNames from 'classnames';
+import classNames from "classnames";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { filtersChanged } from "../../store/mainSlice";
-import { ActiveFilterType } from '../../types';
+import { filtersChanged } from "../../store/main/slice";
+import { ActiveFilterType } from "../../store/main/types";
 
 import "./itemFilter.scss";
 type IBtns = {
   value: ActiveFilterType;
   label: string;
-}
+};
 
 type OnFiltersChangedType = (value: ActiveFilterType) => void;
 
@@ -18,7 +18,7 @@ const btns: IBtns[] = [
 ];
 
 const ItemFilter: React.FC = () => {
-  const { activeFilter } = useAppSelector((state) => state.mainSlice);
+  const activeFilter = useAppSelector((state) => state.main.activeFilter);
   const dispatch = useAppDispatch();
 
   const onFiltersChanged: OnFiltersChangedType = (value) => {
@@ -30,7 +30,7 @@ const ItemFilter: React.FC = () => {
     return (
       <div
         onClick={() => onFiltersChanged(value)}
-        className={classNames("filter__btn", { "active": isActive })}
+        className={classNames("filter__btn", { active: isActive })}
         key={value}
       >
         {label}

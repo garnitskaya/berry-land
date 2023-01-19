@@ -21,3 +21,6 @@ export { default as QuantityItem } from "./quantityItem/QuantityItem";
 export { default as Spinner } from "./spinner/Spinner";
 export { default as ContactDetails } from "./сontactDetails/ContactDetails";
 export { default as WrapBlock } from "./wrapBlock/WrapBlock";
+export { default as LoginForm } from "./loginForm/LoginForm";
+export { default as LogoutButton } from "./logoutButton/LogoutButton";
+export { default as LoginButton } from "./loginButton/LoginButton";

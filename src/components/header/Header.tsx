@@ -1,7 +1,8 @@
-import classNames from 'classnames';
-import { Hamburger, HeaderLink, HeaderLinkCart } from "..";
+import classNames from "classnames";
+
+import { Hamburger, HeaderLink, HeaderLinkCart, LogoutButton, LoginButton } from "..";
 import { useAppSelector, useMatchMedia } from "../../hooks";
-import { IHeaderLink } from "../../types";
+import { IHeaderLink } from "../../store/main/types";
 
 import logo from "../../resources/icons/logo-icon.png";
 import flag from "../../resources/icons/israel-flag-icon.png";
@@ -9,7 +10,8 @@ import flag from "../../resources/icons/israel-flag-icon.png";
 import "./header.scss";
 
 const Header: React.FC = () => {
-  const { openMenu } = useAppSelector((state) => state.mainSlice);
+  const { openMenu } = useAppSelector((state) => state.main);
+  const user = useAppSelector((state) => state.auth.user);
   const { isMobile, isTablet } = useMatchMedia();
 
   const link: IHeaderLink[] = [
@@ -19,7 +21,7 @@ const Header: React.FC = () => {
     { path: "all", label: "", img: true, src: `${logo}`, alt: "logo", visible: false, },
     { path: "delivery", label: "Доставка", alt: "", visible: true },
     { path: "payment", label: "Оплата", alt: "", visible: true },
-    { path: "cart", label: isTablet ? <HeaderLinkCart /> : "Корзина", alt: "cart-link", visible: false, },
+    { path: "cart", label: isTablet ? <HeaderLinkCart /> : "Корзина", alt: "cart-link", visible: false, }
   ];
 
   const items = link.map((item, id) => <HeaderLink key={id} {...item} />);
@@ -39,8 +41,11 @@ const Header: React.FC = () => {
             {itemsHidden}
           </ul>
         )}
-        <ul className={classNames("header__list", { "header__list__active":openMenu })} >
+        <ul className={classNames("header__list", { "header__list__active": openMenu })} >
           {isMobile ? itemsVisible : items}
+          <li className='header__link'>
+            {user ? <LogoutButton /> : <LoginButton />}
+          </li>
         </ul>
       </div>
     </div>

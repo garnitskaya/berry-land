@@ -1,11 +1,11 @@
-import classNames from 'classnames';
+import classNames from "classnames";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { setOpeningMenu } from "../../store/mainSlice";
+import { setOpeningMenu } from "../../store/main/slice";
 
 import "./hamburger.scss";
 
 const Hamburger: React.FC = () => {
-  const { openMenu } = useAppSelector((state) => state.mainSlice);
+  const openMenu = useAppSelector((state) => state.main.openMenu);
   const dispatch = useAppDispatch();
 
   const onOpenMenu = (): void => {

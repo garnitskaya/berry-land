@@ -1,0 +1,14 @@
+@import "../../style";
+
+.login-page {
+  @include page;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@include tablet {
+  .login {
+    padding: 20px;
+  }
+}

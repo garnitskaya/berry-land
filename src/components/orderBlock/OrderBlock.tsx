@@ -2,16 +2,19 @@ import { useState, useEffect } from "react";
 
 import { Button } from "..";
 import { useAppDispatch } from "../../hooks";
-import { addDataForCart, dec, inc } from "../../store/mainSlice";
-import { IDataForCart } from "../../types";
+import { dec, inc } from "../../store/main/slice";
+import { addItemsInCart, } from "../../store/cart/slice";
+import { ICard } from "../../store/main/types";
 
 import "./orderBlock.scss";
 
-interface PropsType extends IDataForCart {
-  array?: boolean;
+type PropsType = {
+  card: ICard,
+  obj?: boolean
 }
 
-const OrderBlock: React.FC<PropsType> = ({ id, quantity, array = false }) => {
+const OrderBlock: React.FC<PropsType> = ({ card, obj }) => {
+  const { quantity, id } = card
   const [value, setValue] = useState(quantity);
   const dispatch = useAppDispatch();
 
@@ -21,18 +24,23 @@ const OrderBlock: React.FC<PropsType> = ({ id, quantity, array = false }) => {
 
   const decItem = (): void => {
     if (value > 0) {
-      dispatch(dec({ id, array, value }));
+      dispatch(dec({ id, value, obj }));
     }
   };
 
   const incItem = (): void => {
-    dispatch(inc({ id, array, value }));
+    dispatch(inc({ id, value, obj }));
   };
 
   const onAddItems = (): void => {
     const quantity = value;
     if (value > 0) {
-      dispatch(addDataForCart({ id, quantity }));
+      const item = {
+        ...card,
+        quantity
+      }
+
+      dispatch(addItemsInCart(item));
     }
   };
 

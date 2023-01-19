@@ -1,8 +1,6 @@
-import { ICard } from "../types";
+import { ICard } from "../store/main/types";
 
-type CalcTotalType = (item: ICard[]) => number;
-
-export const calcTotalPrice: CalcTotalType = (item) => {
+export const calcTotalPrice = (item: ICard[]):string => {
   const sum = item.reduce(
     (acc, item) =>
       item.newPrice
@@ -10,10 +8,10 @@ export const calcTotalPrice: CalcTotalType = (item) => {
         : (acc += +item.price * item.quantity),
     0
   );
-  return +sum.toFixed(2);
+  return sum.toFixed(2);
 };
 
-export const calcTotalQuantity: CalcTotalType = (item) => {
+export const calcTotalQuantity = (item: ICard[]):number => {
   const sum = item.reduce((acc, item) => (acc += +item.quantity), 0);
   return sum;
 };

@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from "react-router-dom";
 
 import { Card, Spinner } from "..";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { fetchDate, filtersChanged } from "../../store/mainSlice";
-import { ActiveFilterType, ICard } from "../../types";
+import { filtersChanged } from "../../store/main/slice";
+import { fetchDate } from "./../../store/main/asyncActions";
+import { ActiveFilterType, ICard } from "../../store/main/types";
 
 import "./cardsList.scss";
 
@@ -16,7 +17,9 @@ type QueryParamsType = {
 type RenderItemType = (arr: ICard[]) => JSX.Element[];
 
 const CardsList: React.FC = () => {
-  const { cards, loading, error, activeFilter } = useAppSelector((state) => state.mainSlice);
+  const { cards, loading, error, activeFilter } = useAppSelector(
+    (state) => state.main
+  );
   const dispatch = useAppDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -37,15 +40,20 @@ const CardsList: React.FC = () => {
   }, []);
 
   const renderItem: RenderItemType = (arr) => {
-    return arr && arr.map((item) => <Card key={nanoid()} {...item} />);
+    return arr && arr.map((item) => <Card key={nanoid()} card={item} />);
   };
 
   const element = renderItem(cards);
 
   return (
     <>
-      {error && <h2 className="title__error">{error}</h2>}
-      {loading ? <Spinner /> : <div className="cards-list">{element}</div>}
+      {error ? (
+        <h2 className="title__error">{error}</h2>
+      ) : loading ? (
+        <Spinner />
+      ) : (
+        <div className="cards-list">{element}</div>
+      )}
     </>
   );
 };

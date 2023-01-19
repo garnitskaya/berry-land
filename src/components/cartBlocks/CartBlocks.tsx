@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { Button, CartItem } from "..";
-import { renderItem, calcTotalPrice } from "../../utils";
+import { renderItem } from "../../utils";
 import { useAppSelector } from "../../hooks";
 
 import "./cartBlocks.scss";
@@ -12,13 +12,13 @@ interface ICartBlocks {
 }
 
 const CartBlocks: React.FC<ICartBlocks> = ({ visibility = true, cl = "" }) => {
-  const { itemsInCart } = useAppSelector((state) => state.mainSlice);
+  const { cards, totalPrice } = useAppSelector((state) => state.cart);
   let element;
 
-  if (itemsInCart.length === 0) {
+  if (cards.length === 0) {
     element = <div className="cart-page__subtitle">Корзина пустая</div>;
   } else {
-    element = renderItem(itemsInCart, CartItem, true);
+    element = renderItem(cards, CartItem, true);
   }
 
   return (
@@ -43,10 +43,10 @@ const CartBlocks: React.FC<ICartBlocks> = ({ visibility = true, cl = "" }) => {
         <div className="cart-blocks__subtotal">
           <span>Подытог: </span>
           <span>
-            {itemsInCart.length > 0 ? calcTotalPrice(itemsInCart) : 0}₪
+            {cards.length > 0 ? totalPrice : 0}₪
           </span>
         </div>
-        {visibility && itemsInCart.length > 0 && (
+        {visibility && cards.length > 0 && (
           <Button
             color={"green"}
             children={<Link to="/payment">Оформить заказ</Link>}

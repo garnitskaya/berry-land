@@ -1,5 +1,5 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { ICard, ICartItem } from "../types";
+import { ICard, ICartItem } from "../store/main/types";
 
 type RenderItemType = (
   arr: ICard[],

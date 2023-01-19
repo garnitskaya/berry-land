@@ -1,11 +1,12 @@
+import { useEffect } from "react";
 import { Link, useMatch } from "react-router-dom";
 import classNames from "classnames";
 
 import { QuantityItem } from "..";
 import { useAppDispatch, useAppSelector, useMatchMedia } from "../../hooks";
 import { calcTotalQuantity } from "../../utils";
-import { setClosingMenu } from "../../store/mainSlice";
-import { IHeaderLink } from "../../types";
+import { setClosingMenu } from "../../store/main/slice";
+import { IHeaderLink } from "../../store/main/types";
 
 import "./headerLink.scss";
 
@@ -17,12 +18,16 @@ const HeaderLink: React.FC<IHeaderLink> = ({
   alt,
   visible,
 }) => {
-  const { itemsInCart } = useAppSelector((state) => state.mainSlice);
+  const { cards } = useAppSelector((state) => state.cart);
   const { isMobile, isTablet } = useMatchMedia();
   const match = useMatch({ path, end: true });
   const dispatch = useAppDispatch();
 
-  const visibleQuantity = !isTablet && alt === "cart-link" && calcTotalQuantity(itemsInCart) > 0;
+  useEffect(() => {
+    localStorage.setItem("cards", JSON.stringify(cards));
+  }, [cards]);
+
+  const visibleQuantity = !isTablet && alt === "cart-link" && calcTotalQuantity(cards) > 0;
 
   const closeMenu = () => {
     visible && isMobile && dispatch(setClosingMenu());
@@ -43,7 +48,7 @@ const HeaderLink: React.FC<IHeaderLink> = ({
         ) : null}
 
         {visibleQuantity && (
-          <QuantityItem quantity={calcTotalQuantity(itemsInCart)} />
+          <QuantityItem quantity={+calcTotalQuantity(cards)} />
         )}
       </Link>
     </li>
